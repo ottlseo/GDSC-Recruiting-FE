@@ -16,11 +16,7 @@ class App extends Component {
     const {questionList} = this.state;
     return(
       <section className='container'>
-        <ol className='application'>
-          {questionList.map((questionList, index) => (
-            <Application key={index} question={this.state.questionList[index]} index={index}/>
-          ))}
-        </ol>
+        <Application questionList={this.state.questionList}/>
       </section>
     );
   }
