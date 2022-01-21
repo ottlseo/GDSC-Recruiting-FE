@@ -11,9 +11,7 @@ class App extends Component {
   render(){
     return(
       <section className='container'>
-        <Application
-          question={"1. GDSC에 지원한 동기를 적어주세요."}
-        />
+        <Application question={"1. GDSC에 지원한 동기를 적어주세요."}/>
       </section>
     );
   }

@@ -28,3 +28,10 @@
 
     color: #000000;
 }
+#content_length {
+    position: absolute;
+    left: 701px;
+    top: 700px;
+    font-family: Noto Sans KR;
+    color:white;
+}
