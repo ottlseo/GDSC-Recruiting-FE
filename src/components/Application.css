@@ -1,0 +1,30 @@
+#content {
+    position: absolute;
+    width: 700px;
+    height: 341px;
+    left: 71px;
+    top: 383px;
+
+    font-family: Noto Sans KR;
+    color:white;
+    background: #3D3D3D;
+}
+#content_length {
+    font-family: Noto Sans KR;
+    
+}
+.application_question {
+    position: absolute;
+    width: 480px;
+    height: 37px;
+    left: 89px;
+    top: 329px;
+
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 146%;
+
+    color: #000000;
+}
