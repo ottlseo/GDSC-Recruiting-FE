@@ -31,23 +31,11 @@ const Application = ({questionList, index}) => {
     const postRequest = (name, email, tel, major, studentNum, isCore) => {
       info.name = name;
       info.email = email;
-      info.tel = tel;
-      info.major = major;
       info.studentNum = studentNum;
+      info.major = major;
+      info.tel = tel;
       info.isCore = isCore;
-      //info = info.toString;
       //console.log(info);
-      /*
-      axios.post("http://localhost:8081/api/info", {
-        requestDto: info //여기에 string으로 전달
-      })
-      .then(function(response) {
-        console.log(response); // userId 값이 들어오나 ?
-      })
-      .catch(function(error){
-        console.log(error);
-      });
-      */
     }
 
     const [application, setApplication] = useState(''); //초기값 공백
@@ -71,7 +59,31 @@ const Application = ({questionList, index}) => {
           <input id="studentNum" className="info" value={studentNum} onChange={e=> setStudentNum(e.target.value)}/>
           <button onClick={()=> {
             postRequest(name, email, tel, major, studentNum, 0);
-            console.log(info);
+
+            var infoString = JSON.stringify(info);
+            /* 
+            fetch("http://localhost:8081/api/info", {
+              method:"POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body:infoString,
+            })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            */
+            /*
+            */
+            axios.post("http://localhost:8081/api/info", {
+              requestDto: infoString //여기에 string으로 전달
+            })
+            .then(function(response) {
+              console.log(response); // userId 값이 들어오나 ?
+            })
+            .catch(function(error){
+              console.log(error);
+            });
+            console.log(infoString);
           }}>저장</button>
         </div>
         <div className="application_form">
