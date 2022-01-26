@@ -38,7 +38,6 @@ const Application = ({questionList, index}) => {
       info.isCore = isCore;
       //console.log(info);
     }
-
     const [application, setApplication] = useState(''); //초기값 공백
     const TextChange = e => {
       setApplication(e.target.value);
