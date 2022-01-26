@@ -4,56 +4,29 @@ import './Application.css';
 
 // 1. requestDto 를 json으로 만들고, 
 // 2. 아래 input에서 name, tel 등등 받을 때마다 추가해주기
-
-// 3. 그리고 그걸 string으로 만든 뒤
-// 4. axios로 "localhost:8081/api/info"로 POST
-/*
-const postAPI = axios.post("http://localhost:8081/api/info", {
-  requestDto: info //여기에 string으로 전달
-})
-.then(function(response) {
-  console.log(response); // userId 값이 들어오나 ?
-})
-.catch(function(error){
-  console.log(error);
-});
-*/
+// 3. axios로 "localhost:8081/api/info"로 json POST
 
 const Application = ({questionList, index}) => { 
+    var info = new Object();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [tel, setTel] = useState('');
     const [major, setMajor] = useState('');
     const [studentNum, setStudentNum] = useState('');
     const [isCore, setIsCore] = useState(0);
-    var info = new Object();
     
     const postRequest = (name, email, tel, major, studentNum, isCore) => {
       info.name = name;
       info.email = email;
-      info.tel = tel;
-      info.major = major;
       info.studentNum = studentNum;
+      info.major = major;
+      info.tel = tel;
       info.isCore = isCore;
-      //info = info.toString;
       //console.log(info);
-      /*
-      axios.post("http://localhost:8081/api/info", {
-        requestDto: info //여기에 string으로 전달
-      })
-      .then(function(response) {
-        console.log(response); // userId 값이 들어오나 ?
-      })
-      .catch(function(error){
-        console.log(error);
-      });
-      */
     }
-
     const [application, setApplication] = useState(''); //초기값 공백
     const TextChange = e => {
       setApplication(e.target.value);
-      //document.getElementById("content_length").innerText = application.length + " / 500"; //이렇게 하면 맨 앞의 #content_length 하나만 변경됨
     }
     return ( 
       <div className="application">
@@ -71,7 +44,14 @@ const Application = ({questionList, index}) => {
           <input id="studentNum" className="info" value={studentNum} onChange={e=> setStudentNum(e.target.value)}/>
           <button onClick={()=> {
             postRequest(name, email, tel, major, studentNum, 0);
-            console.log(info);
+            axios.post("http://localhost:8081/api/info", info)
+            .then(response => {console.log(response);});
+            /*
+            (async() => {
+              const response = await axios.post("http://localhost:8081/api/info", info);
+              console.log(response);
+            })();
+            */
           }}>저장</button>
         </div>
         <div className="application_form">
