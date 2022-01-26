@@ -27,7 +27,6 @@ const Application = ({questionList, index}) => {
     const [studentNum, setStudentNum] = useState('');
     const [isCore, setIsCore] = useState(0);
     var info = new Object();
-    const axios = require('axios');
     
     const postRequest = (name, email, tel, major, studentNum, isCore) => {
       info.name = name;
