@@ -4,30 +4,24 @@ import './Application.css';
 
 // 1. requestDto 를 json으로 만들고, 
 // 2. 아래 input에서 name, tel 등등 받을 때마다 추가해주기
-
-// 3. 그리고 그걸 string으로 만든 뒤
-// 4. axios로 "localhost:8081/api/info"로 POST
-/*
-const postAPI = axios.post("http://localhost:8081/api/info", {
-  requestDto: info //여기에 string으로 전달
-})
-.then(function(response) {
-  console.log(response); // userId 값이 들어오나 ?
-})
-.catch(function(error){
-  console.log(error);
-});
-*/
+// 3. axios로 "localhost:8081/api/info"로 json POST
 
 const Application = ({questionList, index}) => { 
+    var info = new Object();
+    var userId;
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [tel, setTel] = useState('');
     const [major, setMajor] = useState('');
     const [studentNum, setStudentNum] = useState('');
     const [isCore, setIsCore] = useState(0);
-    var info = new Object();
     
+    const [input, setInput] = useState({
+      first:"", //질문 1
+      second:"",  //2
+      third:"",   //3
+    });
+    const {first, second, third} = input;
     const postRequest = (name, email, tel, major, studentNum, isCore) => {
       info.name = name;
       info.email = email;
@@ -35,12 +29,15 @@ const Application = ({questionList, index}) => {
       info.major = major;
       info.tel = tel;
       info.isCore = isCore;
-      //console.log(info);
     }
     const [application, setApplication] = useState(''); //초기값 공백
     const TextChange = e => {
+      const { value, name } = e.target;
       setApplication(e.target.value);
-      //document.getElementById("content_length").innerText = application.length + " / 500"; //이렇게 하면 맨 앞의 #content_length 하나만 변경됨
+      setInput({
+        ...input,
+        [name]: value,
+      });
     }
     return ( 
       <div className="application">
@@ -58,41 +55,32 @@ const Application = ({questionList, index}) => {
           <input id="studentNum" className="info" value={studentNum} onChange={e=> setStudentNum(e.target.value)}/>
           <button onClick={()=> {
             postRequest(name, email, tel, major, studentNum, 0);
-
-            var infoString = JSON.stringify(info);
-            /* 
-            fetch("http://localhost:8081/api/info", {
-              method:"POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body:infoString,
-            })
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            */
-            /*
-            */
-            axios.post("http://localhost:8081/api/info", {
-              requestDto: infoString //여기에 string으로 전달
-            })
-            .then(function(response) {
-              console.log(response); // userId 값이 들어오나 ?
-            })
-            .catch(function(error){
-              console.log(error);
-            });
-            console.log(infoString);
+            axios.post("http://localhost:8081/api/info", info)
+            .then(response => {
+              console.log(response);
+              userId = response; });
           }}>저장</button>
         </div>
         <div className="application_form">
         {questionList.map((questionList, index) => (
                     <ol key={index} className="application">
                         <p className="application_question">{index+1}. {questionList}</p>
-                        <textarea id="content" onChange={TextChange} onKeyUp={TextChange} onKeyDown={TextChange} onKeyPress={TextChange}></textarea>
+                        <textarea id="content" 
+                        name={input[index]}
+                        value={input[index]}
+                        onChange={TextChange} onKeyUp={TextChange} onKeyDown={TextChange} onKeyPress={TextChange}/>
                         <div id="content_length">{application.length+" / 500"}</div>
                     </ol>
                 ))}
+                <button onClick={()=> {
+                  axios.post("http://localhost:8081/api/application", {
+                  "userId" : userId,
+                  "first": input[0],
+                  "second": input[1],
+                  "third": input[2],
+                  })
+                  .then(response => {console.log(response);});
+                }}>제출</button>
             </div>
           </div>
        )
