@@ -8,7 +8,7 @@ import './Application.css';
 
 const Application = ({questionList, index}) => { 
     var info = new Object();
-    var userId;
+    //var userId;
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [tel, setTel] = useState('');
@@ -17,11 +17,11 @@ const Application = ({questionList, index}) => {
     const [isCore, setIsCore] = useState(0);
     
     const [input, setInput] = useState({
-      first:"", //질문 1
-      second:"",  //2
-      third:"",   //3
+      firstInput:"", //질문 1
+      secondInput:"",  //2
+      thirdInput:"",   //3
     });
-    const {first, second, third} = input;
+    const {firstInput, secondInput, thirdInput} = input;
     const postRequest = (name, email, tel, major, studentNum, isCore) => {
       info.name = name;
       info.email = email;
@@ -58,7 +58,9 @@ const Application = ({questionList, index}) => {
             axios.post("http://localhost:8081/api/info", info)
             .then(response => {
               console.log(response);
-              userId = response; });
+              info.userId = response;
+
+             });
           }}>저장</button>
         </div>
         <div className="application_form">
@@ -66,21 +68,24 @@ const Application = ({questionList, index}) => {
                     <ol key={index} className="application">
                         <p className="application_question">{index+1}. {questionList}</p>
                         <textarea id="content" 
-                        name={input[index]}
-                        value={input[index]}
-                        onChange={TextChange} onKeyUp={TextChange} onKeyDown={TextChange} onKeyPress={TextChange}/>
+                          name={input[index]} 
+                          value={input[index]}
+                          onChange={TextChange} onKeyUp={TextChange} onKeyDown={TextChange} onKeyPress={TextChange}/>
                         <div id="content_length">{application.length+" / 500"}</div>
                     </ol>
                 ))}
                 <button onClick={()=> {
-                  axios.post("http://localhost:8081/api/application", {
-                  "userId" : userId,
-                  "first": input[0],
-                  "second": input[1],
-                  "third": input[2],
+                  console.log(info);
+            /*
+            axios.post("http://localhost:8081/api/application", {
+                  "info" : info,
+                  "firsInput": input[0],
+                  "secondInput": input[1],
+                  "thirdInput": input[2],
                   })
-                  .then(response => {console.log(response);});
-                }}>제출</button>
+                  .then(response => {console.log(response);});              
+            */
+                 }}>제출</button>
             </div>
           </div>
        )
