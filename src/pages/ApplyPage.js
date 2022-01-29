@@ -3,8 +3,13 @@ import axios from 'axios';
 import './ApplyPage.css';
 import InfoPage from "./InfoPage";
 
-const ApplyPage = ({questionList, index}) => { 
-    const [input, setInput] = useState({
+const ApplyPage = () => { 
+  const questionList = [
+    "GDSC에 지원한 동기를 적어주세요.",
+    "두 번째 질문",
+    "세 번째 질문"
+  ];
+  const [input, setInput] = useState({
       first:"", //질문 1
       second:"",  //2
       third:"",   //3
@@ -23,7 +28,6 @@ const ApplyPage = ({questionList, index}) => {
     return ( 
       <div className="application">
         <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
-        <InfoPage/>
         <div className="application_form">
         {questionList.map((questionList, index) => (
                     <ol key={index} className="application">
