@@ -1,25 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Component } from 'react';
 import './App.css'; 
+import CoreApplyPage from './pages/CoreApplyPage';
+import ApplyPage from './pages/ApplyPage';
+import InfoPage from './pages/InfoPage';
 
-import Application from './components/Application';
-
-class App extends Component {
-  state = {
-    questionList : [
-      "GDSC에 지원한 동기를 적어주세요.",
-      "두 번째 질문",
-      "세 번째 질문"
-    ]
-  };
-  render(){
-    const {questionList} = this.state;
+const App = () => {
     return(
       <section className='container'>
-        <Application questionList={this.state.questionList}/>
+        <BrowserRouter>
+        <Routes>
+          <Route element={<InfoPage/>} path="/apply"/>
+          <Route element={<ApplyPage/>} path="/apply/general"/>
+          <Route element={<CoreApplyPage/>} path="apply/core"/>
+        </Routes>
+        </BrowserRouter>
       </section>
     );
-  }
 }
 
 export default App;
