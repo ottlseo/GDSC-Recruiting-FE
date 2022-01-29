@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Component } from 'react';
 import './App.css'; 
 import CoreApplyPage from './pages/CoreApplyPage';
 import ApplyPage from './pages/ApplyPage';
