@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import './App.css'; 
 
-import Apply from './components/Apply';
+import ApplyPage from './pages/ApplyPage';
 
 class App extends Component {
   state = {
@@ -16,7 +16,7 @@ class App extends Component {
     const {questionList} = this.state;
     return(
       <section className='container'>
-        <Apply questionList={this.state.questionList}/>
+        <ApplyPage questionList={this.state.questionList}/>
       </section>
     );
   }

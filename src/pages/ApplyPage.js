@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import './Apply.css';
-import Info from "./Info";
+import './ApplyPage.css';
+import InfoPage from "./InfoPage";
 
-const Apply = ({questionList, index}) => { 
+const ApplyPage = ({questionList, index}) => { 
     const [input, setInput] = useState({
       first:"", //질문 1
       second:"",  //2
@@ -23,7 +23,7 @@ const Apply = ({questionList, index}) => {
     return ( 
       <div className="application">
         <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
-        <Info/>
+        <InfoPage/>
         <div className="application_form">
         {questionList.map((questionList, index) => (
                     <ol key={index} className="application">
@@ -50,4 +50,4 @@ const Apply = ({questionList, index}) => {
           </div>
        )
     };
-export default Apply;
+export default ApplyPage;

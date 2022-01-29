@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Info = () => { 
+const InfoPage = () => { 
     var info = new Object();
     var userId;
     const [name, setName] = useState('');
@@ -40,4 +40,4 @@ const Info = () => {
         </div>
     );
 }
-export default Info;
+export default InfoPage;
