@@ -21,7 +21,7 @@ const IsCore = ({answer, onClickAnswer}) => {
             <RadioButton
               checked={answer === 2}
               onClick={() => {
-                onClickAnswer(2);
+                onClickAnswer(0);
             }}
             />
             <p>아니오</p>

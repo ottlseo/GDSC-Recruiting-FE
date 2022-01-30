@@ -24,9 +24,15 @@ const InfoPage = () => {
         info.tel = tel;
         info.isCore = isCore;
       }
+    const postInfo = () => { //여기 비동기로 바꾸기
+      postRequest(name, email, tel, major, studentNum, isCore);
+      axios.post("http://localhost:8081/api/info", info)
+            .then(response => {
+              console.log(info);
+              userId = response; });
+    }
     return (
         <>
-        
       <div className="application">
         <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
           <p className="application_question">성명</p>
@@ -41,28 +47,21 @@ const InfoPage = () => {
           <input id="studentNum" className="info" value={studentNum} onChange={e=> setStudentNum(e.target.value)}/>
           <p className="application_question">Core Team 지원 여부</p>
           <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
-          <button onClick={()=> {
-            postRequest(name, email, tel, major, studentNum, 0);
-            axios.post("http://localhost:8081/api/info", info)
-            .then(response => {
-              console.log(response);
-              userId = response; });
-          }}>저장</button>
-          <div className="core">
-            {isCore % 2 === 1 ? (
+          <div className="application_part">
+            {
+             isCore % 2 === 1 ? (
               <Link to="/apply/core">
-              <button>다음</button>
+                <button onClick={postInfo}>다음</button>
               </Link>
-              ) : (
-                <Link to="/apply/general">
-              <button>다음</button>
+            ) : (
+              <Link to="/apply/general">
+                <button onClick={postInfo}>다음</button>
               </Link>
-              )
-          }
-          
+            ) 
+            }
           </div>
-          </div>
-        </>
+        </div>
+      </>
     );
 };
 export default InfoPage;
