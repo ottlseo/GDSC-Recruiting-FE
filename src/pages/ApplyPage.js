@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from 'axios';
 import './ApplyPage.css';
 import InfoPage from "./InfoPage";
+import Question from "../components/Question";
+import InputArea from "../components/InputArea";
 
 const ApplyPage = () => { 
   const questionList = [
@@ -16,15 +18,6 @@ const ApplyPage = () => {
     });
     const { first, second, third } = input;
     
-    const [application, setApplication] = useState(''); //초기값 공백
-    const TextChange = e => {
-      const { value, name } = e.target;
-      setApplication(e.target.value);
-      setInput({
-        ...input,
-        [name]: value,
-      });
-    }
     const submitInput = () => {
       const userInput = {
         info: { //우선 임시로 할당
@@ -53,12 +46,8 @@ const ApplyPage = () => {
         <div className="application_form">
         {questionList.map((questionList, index) => (
                     <ol key={index} className="application">
-                        <p className="application_question">{index+1}. {questionList}</p>
-                        <textarea id="content" 
-                        name={input[index]}
-                        value={input[index]}
-                        onChange={TextChange} onKeyUp={TextChange} onKeyDown={TextChange} onKeyPress={TextChange}/>
-                        <div id="content_length">{application.length+" / 500"}</div>
+                        <Question questionText={"1. 첫 번째 질문 예시"}/>
+                        <InputArea name={'name'} value={'value'}/>
                     </ol>
                 ))}
                 <button onClick={()=> { submitInput(); }}>제출</button>

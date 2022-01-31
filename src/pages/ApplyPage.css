@@ -14,15 +14,6 @@
     top: 30%;
     font-family: Noto Sans KR;
 }
-.info {
-    resize: none;
-    width: 20%;
-    border-right:0px; 
-    border-top:0px; 
-    border-left:0px; 
-    border-bottom-width:1;
-    outline: none;
-}
 .application {
     padding: 5rem;
     padding-top: 5rem;
@@ -35,16 +26,4 @@
     /*padding: 5rem;
     padding-top: 5rem;
     grid-row-gap: 5rem;*/
-}
-.application_question {
-    left: 20%;
-    top: 20%;
-
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 146%;
-
-    color: #000000;
 }
