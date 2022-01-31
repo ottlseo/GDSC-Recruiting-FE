@@ -23,14 +23,11 @@ const InfoPage = () => {
         info.major = major;
         info.tel = tel;
         info.isCore = isCore;
-      }
-    const postInfo = () => { //여기 비동기로 바꾸기
-      postRequest(name, email, tel, major, studentNum, isCore);
-      axios.post("http://localhost:8081/api/info", info)
+        axios.post("http://localhost:8081/api/info", info)
             .then(response => {
               console.log(info);
               userId = response; });
-    }
+      }
     return (
         <>
       <div className="application">
@@ -51,11 +48,11 @@ const InfoPage = () => {
             {
              isCore % 2 === 1 ? (
               <Link to="/apply/core">
-                <button onClick={postInfo}>다음</button>
+                <button onClick={postRequest}>다음</button>
               </Link>
             ) : (
               <Link to="/apply/general">
-                <button onClick={postInfo}>다음</button>
+                <button onClick={postRequest}>다음</button>
               </Link>
             ) 
             }

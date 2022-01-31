@@ -7,7 +7,7 @@ const ApplyPage = () => {
   const questionList = [
     "GDSC에 지원한 동기를 적어주세요.",
     "두 번째 질문",
-    "세 번째 질문"
+    "세 번째 질문",
   ];
   const [input, setInput] = useState({
       first:"", //질문 1
@@ -40,6 +40,7 @@ const ApplyPage = () => {
                     </ol>
                 ))}
                 <button onClick={()=> {
+                  console.log(input[0]);
                   /*
                   axios.post("http://localhost:8081/api/application", {
                   "info" : info, //Info 컴포넌트에서 받아온 json값을 여기에 넣어주기
