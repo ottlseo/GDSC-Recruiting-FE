@@ -4,7 +4,13 @@ import './ApplyPage.css';
 import InfoPage from "./InfoPage";
 import Question from "../components/Question";
 import InputArea from "../components/InputArea";
+import styled from "styled-components";
 
+const ApplicationArea = styled.div`
+  padding: 5rem;
+  padding-top: 5rem;
+  padding-left: 10%;
+`
 const ApplyPage = () => { 
   const questionList = [
     "GDSC에 지원한 동기를 적어주세요.",
@@ -41,18 +47,14 @@ const ApplyPage = () => {
             });
     }
     return ( 
-      <div className="application">
+      <ApplicationArea>
         <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
-        <div className="application_form">
-        {questionList.map((questionList, index) => (
-                    <ol key={index} className="application">
-                        <Question questionText={"1. 첫 번째 질문 예시"}/>
-                        <InputArea name={'name'} value={'value'}/>
-                    </ol>
-                ))}
-                <button onClick={()=> { submitInput(); }}>제출</button>
-            </div>
-          </div>
+        <InputArea questionText={"1. 첫 번째 질문"}/>
+        <InputArea questionText={"2. 두 번째 질문"}/>
+        <InputArea questionText={"3. 세 번째 질문"}/>
+        <button onClick={()=> { submitInput(); }}>제출</button>
+        
+      </ApplicationArea>
        )
     };
 export default ApplyPage;

@@ -4,7 +4,8 @@ import styled from "styled-components";
 const QuestionText = styled.div`
     left: 20%;
     top: 20%;
-
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: bold;
