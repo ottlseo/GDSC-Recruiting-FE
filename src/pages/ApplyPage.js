@@ -14,7 +14,7 @@ const ApplyPage = () => {
       second:"",  //2
       third:"",   //3
     });
-    const {first, second, third} = input;
+    const { first, second, third } = input;
     
     const [application, setApplication] = useState(''); //초기값 공백
     const TextChange = e => {
@@ -24,6 +24,28 @@ const ApplyPage = () => {
         ...input,
         [name]: value,
       });
+    }
+    const submitInput = () => {
+      const userInput = {
+        info: { //우선 임시로 할당
+          userId:5,
+          name:"KIM",
+          email:"dots",
+          studentNum:"1111111",
+					major:"사이버보안전공",
+					tel:"01095923360",
+					isCore:0,
+        }, //나중에는 infoPage의 정보 redux로 받아서 넣기
+        firstInput: input.first,
+        secondInput: input.second,
+        thirdInput : input.third,
+      };
+      console.log(userInput);
+      setInput(userInput);
+      axios.post("http://localhost:8081/api/application", input)
+            .then(response => {
+              console.log(input);
+            });
     }
     return ( 
       <div className="application">
@@ -39,18 +61,7 @@ const ApplyPage = () => {
                         <div id="content_length">{application.length+" / 500"}</div>
                     </ol>
                 ))}
-                <button onClick={()=> {
-                  console.log(input[0]);
-                  /*
-                  axios.post("http://localhost:8081/api/application", {
-                  "info" : info, //Info 컴포넌트에서 받아온 json값을 여기에 넣어주기
-                  "firstInput": input[0],
-                  "secondInput": input[1],
-                  "thirdInput": input[2],
-                  })
-                  .then(response => {console.log(response);});
-                */
-                }}>제출</button>
+                <button onClick={()=> { submitInput(); }}>제출</button>
             </div>
           </div>
        )
