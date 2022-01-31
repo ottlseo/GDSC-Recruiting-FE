@@ -5,6 +5,9 @@ import styled from "styled-components";
 import Question from "./Question";
 
 const Box = styled.div`
+    height: 18rem;
+    padding: 3rem;
+    padding-left: 10%;
 `;
 const InputBox = styled.textarea`
     resize: none;
