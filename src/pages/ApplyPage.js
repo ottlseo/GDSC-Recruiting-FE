@@ -12,11 +12,6 @@ const ApplicationArea = styled.div`
   padding-left: 10%;
 `
 const ApplyPage = () => { 
-  const questionList = [
-    "GDSC에 지원한 동기를 적어주세요.",
-    "두 번째 질문",
-    "세 번째 질문",
-  ];
   const [input, setInput] = useState({
       first:"", //질문 1
       second:"",  //2
