@@ -16,6 +16,7 @@ const InputBox = styled.textarea`
     left: 10%;
     top: 20%;
     font-family: Noto Sans KR;
+    border-radius: 0.5rem;
     color:white;
     background: #3D3D3D;
     padding: 1rem;

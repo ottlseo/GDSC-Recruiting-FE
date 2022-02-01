@@ -6,6 +6,7 @@ import IsCore from "../components/IsCore";
 import Question from "../components/Question";
 import InfoInputArea from "../components/InfoInputArea";
 import { SERVER_ADDR } from "../config";
+import Button from "../components/custom/Button";
 
 const InfoPage = () => { 
   var info = new Object();
@@ -26,7 +27,7 @@ const InfoPage = () => {
     });
   };
   
-  const [isCore, setIsCore] = useState(1);
+  const [isCore, setIsCore] = useState(0);
   const onClickIsCore = (id) => {
       setIsCore(id);
     }
@@ -61,17 +62,17 @@ const InfoPage = () => {
             {
              isCore % 2 === 1 ? (
               <Link to="/apply/core">
-                <button onClick={() => {
+                <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
                   submitInfo(info); //console.log(info);
-                  }}>다음</button>
+                  }}>다음</Button>
               </Link>
             ) : (
               <Link to="/apply/general">
-                <button onClick={() => {
+                <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
                   submitInfo(info);
-                  }}>다음</button>
+                  }}>다음</Button>
               </Link>
             ) 
             }

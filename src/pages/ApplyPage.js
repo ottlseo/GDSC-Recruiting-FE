@@ -3,6 +3,8 @@ import axios from 'axios';
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
+import "./pages.css";
+import Button from "../components/custom/Button";
 
 const ApplicationArea = styled.div`
   padding: 5rem;
@@ -55,10 +57,10 @@ const ApplyPage = () => {
         <InputArea id='first' value={first} onChange={onChange} questionText={"1. 첫 번째 질문"}/>
         <InputArea id='second' value={second} onChange={onChange} questionText={"2. 두 번째 질문"}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={"3. 세 번째 질문"}/>
-        <button onClick={()=> { 
+        <Button onClick={()=> { 
           generateRequestDto(temporaryInfo, first, second, third);
           submitApplication(application); 
-        }}>제출</button>
+        }}>제출</Button>
         
       </ApplicationArea>
        )

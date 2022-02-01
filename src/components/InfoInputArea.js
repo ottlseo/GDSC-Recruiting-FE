@@ -8,11 +8,12 @@ const Box = styled.div`
 `;
 const InputLine = styled.input`
     resize: none;
-    width: 30%;
+    width: 20rem;
     border-right:0px; 
     border-top:0px; 
     border-left:0px; 
     border-bottom-width:1;
+    background: transparent;
     outline: none;
     @media (max-width: 767px) {
     

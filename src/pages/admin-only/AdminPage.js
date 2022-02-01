@@ -10,8 +10,8 @@ const AdminPage = () => {
         // api 만들고 다시 채우기
     }
     return (
-        <>
-        </>
+        <AdminArea>
+        </AdminArea>
     )
 }
 export default AdminPage;
