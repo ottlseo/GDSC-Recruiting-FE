@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import InfoPage from "./InfoPage";
-import Question from "../components/Question";
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
