@@ -26,11 +26,7 @@ const TextCounts = styled.div`
     font-family: Noto Sans KR;
 `;
 const InputArea = ({ questionText, id, value, onChange }) => {
-    /*
-    const [application, setApplication] = useState('');  
-    const CountText = e => { //글자수 세기 기능
-        setApplication(e.target.value);
-    }*/
+    
     return (
         <Box>
             <Question questionText={questionText}/>

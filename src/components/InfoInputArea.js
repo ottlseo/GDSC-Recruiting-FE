@@ -14,7 +14,11 @@ const InputLine = styled.input`
     border-left:0px; 
     border-bottom-width:1;
     outline: none;
-`;
+    @media (max-width: 767px) {
+    
+    }
+`; //  height: ${(props) => props.height || "10rem"};
+
 const InfoInputArea = ({ questionText, id, value, onChange }) => { 
 
     return (
