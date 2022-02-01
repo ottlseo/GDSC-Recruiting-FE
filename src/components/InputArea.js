@@ -25,21 +25,24 @@ const TextCounts = styled.div`
     top: 30%;
     font-family: Noto Sans KR;
 `;
-const InputArea = ({ questionText }) => { 
-    const [application, setApplication] = useState(''); //초기값 공백
-    const TextChange = e => {
+const InputArea = ({ questionText, id, value, onChange }) => {
+    /*
+    const [application, setApplication] = useState('');  
+    const CountText = e => { //글자수 세기 기능
         setApplication(e.target.value);
-    }
+    }*/
     return (
         <Box>
             <Question questionText={questionText}/>
             <InputBox 
-                onChange={TextChange}
-                onKeyUp={TextChange}
-                onKeyDown={TextChange}
-                onKeyPress={TextChange}
+                id={id} 
+                value={value}
+                onKeyUp={onChange}
+                onKeyDown={onChange}
+                onKeyPress={onChange}
+                onChange={onChange}
                 placeholder="내용을 입력해주세요."/>
-            <TextCounts>{application.length+" / 500"}</TextCounts>
+            <TextCounts>{value.length+" / 500"}</TextCounts>
         </Box>
     )
 }
