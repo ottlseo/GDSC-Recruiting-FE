@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import './ApplyPage.css';
 import InfoPage from "./InfoPage";
 import Question from "../components/Question";
 import InputArea from "../components/InputArea";
@@ -13,42 +12,51 @@ const ApplicationArea = styled.div`
   padding-left: 10%;
 `
 const ApplyPage = () => { 
-  const [input, setInput] = useState({
-      first:"", //질문 1
-      second:"",  //2
-      third:"",   //3
+  var temporaryInfo = { //우선 임시로 할당하는 정보
+    userId:5, //나중에는 infoPage의 정보 redux로 받아서 넣기
+    name:"KIM",
+    email:"dots",
+    studentNum:"1111111",
+    major:"사이버보안전공",
+    tel:"01095923360",
+    isCore:0,
+  };
+  var application = new Object();
+  const [inputs, setInputs] = useState({
+      first: "", //질문 1
+      second: "",  //2
+      third: "",   //3
     });
-    const { first, second, third } = input;
-    
-    const submitInput = () => {
-      const userInput = {
-        info: { //우선 임시로 할당
-          userId:5,
-          name:"KIM",
-          email:"dots",
-          studentNum:"1111111",
-					major:"사이버보안전공",
-					tel:"01095923360",
-					isCore:0,
-        }, //나중에는 infoPage의 정보 redux로 받아서 넣기
-        firstInput: input.first,
-        secondInput: input.second,
-        thirdInput : input.third,
-      };
-      console.log(userInput);
-      setInput(userInput);
-      axios.post(`${SERVER_ADDR}/api/application`, input)
-            .then(response => {
-              console.log(input);
-            });
+    const { first, second, third } = inputs;
+
+    const onChange = (e) => {
+      const { value, id } = e.target; // 서버 post용
+      setInputs({ // 값 저장
+        ...inputs,
+        [id]: value
+      });
+    };
+    const generateRequestDto = (info, first, second, third) => {
+      application.info = info; 
+      application.firstInput = first;
+      application.secondInput = second;
+      application.thirdInput = third;
+    }
+    const submitApplication = (application) => {
+      axios.post(`${SERVER_ADDR}/api/application`, application)
+          .then(response => {
+            console.log(application.info.name);}); //이름 출력
     }
     return ( 
       <ApplicationArea>
         <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
-        <InputArea questionText={"1. 첫 번째 질문"}/>
-        <InputArea questionText={"2. 두 번째 질문"}/>
-        <InputArea questionText={"3. 세 번째 질문"}/>
-        <button onClick={()=> { submitInput(); }}>제출</button>
+        <InputArea id='first' value={first} onChange={onChange} questionText={"1. 첫 번째 질문"}/>
+        <InputArea id='second' value={second} onChange={onChange} questionText={"2. 두 번째 질문"}/>
+        <InputArea id='third' value={third} onChange={onChange} questionText={"3. 세 번째 질문"}/>
+        <button onClick={()=> { 
+          generateRequestDto(temporaryInfo, first, second, third);
+          submitApplication(application); 
+        }}>제출</button>
         
       </ApplicationArea>
        )

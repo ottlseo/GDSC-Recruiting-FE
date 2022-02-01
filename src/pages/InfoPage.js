@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import './ApplyPage.css';
 import styled from "styled-components";
 import IsCore from "../components/IsCore";
 import Question from "../components/Question";
