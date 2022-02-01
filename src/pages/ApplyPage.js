@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import InfoPage from "./InfoPage";
-import Question from "../components/Question";
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
@@ -31,6 +29,10 @@ const ApplyPage = () => {
 
     const onChange = (e) => {
       const { value, id } = e.target; // 서버 post용
+      if(value.length > 500){
+        alert("500자 이내로 입력해주세요.");
+        value = value.substr(0, 500);
+      }
       setInputs({ // 값 저장
         ...inputs,
         [id]: value

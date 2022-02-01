@@ -1,60 +1,73 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import InfoPage from "./InfoPage";
+import InputArea from "../components/InputArea";
+import styled from "styled-components";
+import { SERVER_ADDR } from "../config";
 
+const ApplicationArea = styled.div`
+  padding: 5rem;
+  padding-top: 5rem;
+  padding-left: 10%;
+`
 const CoreApplyPage = () => { 
-  const questionList = [
-    "코어팀 질문 1",
-    "코어팀 질문 2",
-    "코어팀 질문 3",
-    "코어팀 질문 4",
-    "코어팀 질문 5",
-  ];
-  const [input, setInput] = useState({
-      first:"", //질문 1
-      second:"",  //2
-      third:"",   //3
-      fourth:"",
-      fifth:"",
+  var temporaryInfo = { //우선 임시로 할당하는 정보
+    userId:5, //나중에는 infoPage의 정보 redux로 받아서 넣기
+    name:"KIM",
+    email:"dots",
+    studentNum:"1111111",
+    major:"사이버보안전공",
+    tel:"01095923360",
+    isCore:0,
+  };
+  var application = new Object();
+  const [inputs, setInputs] = useState({
+      first: "", 
+      second: "", 
+      third: "",  
+      fourth: "",
+      fifth: "",
     });
-    const {first, second, third, fourth, fifth} = input;
-    
-    const [application, setApplication] = useState(''); //초기값 공백
-    const TextChange = e => {
-      const { value, name } = e.target;
-      setApplication(e.target.value);
-      setInput({
-        ...input,
-        [name]: value,
+    const {first, second, third, fourth, fifth} = inputs;
+
+    const onChange = (e) => {
+      const { value, id } = e.target; // 서버 post용
+      if(value.length > 500){
+        alert("500자 이내로 입력해주세요.");
+        value = value.substr(0, 500);
+      }
+      setInputs({ // 값 저장
+        ...inputs,
+        [id]: value
       });
+    };
+    const generateRequestDto = (info, first, second, third, fourth, fifth) => {
+      application.info = info; 
+      application.firstInput = first;
+      application.secondInput = second;
+      application.thirdInput = third;
+      application.fourthInput = fourth;
+      application.fifthInput = fifth;
+    }
+    const submitApplication = (application) => {
+      axios.post(`${SERVER_ADDR}/api/core_application`, application)
+          .then(response => {
+            console.log(application.info.name);}); //이름 출력
     }
     return ( 
-      <div className="application">
+      <ApplicationArea>
         <p>GDSC Ewha Core team에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
-        <div className="application_form">
-        {questionList.map((questionList, index) => (
-                    <ol key={index} className="application">
-                        <p className="application_question">{index+1}. {questionList}</p>
-                        <textarea id="content" 
-                        name={input[index]}
-                        value={input[index]}
-                        onChange={TextChange} onKeyUp={TextChange} onKeyDown={TextChange} onKeyPress={TextChange}/>
-                        <div id="content_length">{application.length+" / 500"}</div>
-                    </ol>
-                ))}
-                <button onClick={()=> {
-                  /*
-                  axios.post("http://localhost:8081/api/application", {
-                  "info" : info, //Info 컴포넌트에서 받아온 json값을 여기에 넣어주기
-                  "firstInput": input[0],
-                  "secondInput": input[1],
-                  "thirdInput": input[2],
-                  })
-                  .then(response => {console.log(response);});
-                */
-                }}>제출</button>
-            </div>
-          </div>
+        <InputArea id='first' value={first} onChange={onChange} questionText={"1. 코어팀 첫 번째 질문"}/>
+        <InputArea id='second' value={second} onChange={onChange} questionText={"2. 코어팀 두 번째 질문"}/>
+        <InputArea id='third' value={third} onChange={onChange} questionText={"3. 코어팀 세 번째 질문"}/>
+        <InputArea id='fourth' value={fourth} onChange={onChange} questionText={"4. 코어팀 네 번째 질문"}/>
+        <InputArea id='fifth' value={fifth} onChange={onChange} questionText={"5. 코어팀 다섯 번째 질문"}/>
+        <button onClick={()=> { 
+          generateRequestDto(temporaryInfo, first, second, third, fourth, fifth);
+          submitApplication(application); 
+        }}>제출</button>
+        
+      </ApplicationArea>
+      
        )
     };
 export default CoreApplyPage;
