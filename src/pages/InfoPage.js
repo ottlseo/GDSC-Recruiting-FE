@@ -6,6 +6,7 @@ import styled from "styled-components";
 import IsCore from "../components/IsCore";
 import Question from "../components/Question";
 import InfoInputArea from "../components/InfoInputArea";
+import { SERVER_ADDR } from "../config";
 
 const InfoPage = () => { 
   var info = new Object();
@@ -31,14 +32,16 @@ const InfoPage = () => {
       setIsCore(id);
     }
 
-    const postRequest = (name, email, tel, major, studentNum, isCore) => {
+    const generateRequestDto = (name, email, tel, major, studentNum, isCore) => {
         info.name = name;
         info.email = email;
         info.studentNum = studentNum;
         info.major = major;
         info.tel = tel;
-        info.isCore = 0; //임시
-        axios.post("http://localhost:8081/api/info", info)
+        info.isCore = isCore; 
+      }
+      const submitInfo = (info) => {
+        axios.post(`${SERVER_ADDR}/api/info`, info)
             .then(response => {
               console.log(info);
               userId = response; });
@@ -59,11 +62,17 @@ const InfoPage = () => {
             {
              isCore % 2 === 1 ? (
               <Link to="/apply/core">
-                <button onClick={postRequest}>다음</button>
+                <button onClick={() => {
+                  generateRequestDto(name, email, tel, major, studentNum, isCore);
+                  submitInfo(info); //console.log(info);
+                  }}>다음</button>
               </Link>
             ) : (
               <Link to="/apply/general">
-                <button onClick={postRequest}>다음</button>
+                <button onClick={() => {
+                  generateRequestDto(name, email, tel, major, studentNum, isCore);
+                  submitInfo(info);
+                  }}>다음</button>
               </Link>
             ) 
             }

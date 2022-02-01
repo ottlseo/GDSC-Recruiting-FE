@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import './ApplyPage.css';
 import InfoPage from "./InfoPage";
 
 const CoreApplyPage = () => { 

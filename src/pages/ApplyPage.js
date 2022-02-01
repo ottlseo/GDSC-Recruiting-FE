@@ -5,6 +5,7 @@ import InfoPage from "./InfoPage";
 import Question from "../components/Question";
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
+import { SERVER_ADDR } from "../config";
 
 const ApplicationArea = styled.div`
   padding: 5rem;
@@ -36,7 +37,7 @@ const ApplyPage = () => {
       };
       console.log(userInput);
       setInput(userInput);
-      axios.post("http://localhost:8081/api/application", input)
+      axios.post(`${SERVER_ADDR}/api/application`, input)
             .then(response => {
               console.log(input);
             });
