@@ -7,10 +7,10 @@ import Question from "../components/Question";
 import InfoInputArea from "../components/InfoInputArea";
 import { SERVER_ADDR } from "../config";
 import Button from "../components/custom/Button";
+import CoreApplyPage from "./CoreApplyPage";
 
 const InfoPage = () => { 
   var info = new Object();
-  var userId;
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -43,8 +43,8 @@ const InfoPage = () => {
       const submitInfo = (info) => {
         axios.post(`${SERVER_ADDR}/api/info`, info)
             .then(response => {
-              console.log(info);
-              userId = response; });
+              info.userId = response;
+              console.log(info); });
       }
     return (
         <>
@@ -65,6 +65,7 @@ const InfoPage = () => {
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
                   submitInfo(info); //console.log(info);
+                  <CoreApplyPage info={info} showing={false}></CoreApplyPage>
                   }}>다음</Button>
               </Link>
             ) : (
