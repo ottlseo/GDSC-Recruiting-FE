@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import IsCore from "../components/IsCore";
 import Question from "../components/Question";
@@ -11,6 +12,7 @@ import Button from "../components/custom/Button";
 const InfoPage = () => { 
   var info = new Object();
   var userId;
+  const history = useHistory();
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -44,7 +46,9 @@ const InfoPage = () => {
         axios.post(`${SERVER_ADDR}/api/info`, info)
             .then(response => {
               console.log(info);
-              userId = response; });
+              userId = response; 
+              info.userId = userId; 
+            });
       }
     return (
         <>
@@ -61,29 +65,23 @@ const InfoPage = () => {
           <div className="application_part">
             {
              isCore % 2 === 1 ? (
-              <Link to={{
-                pathname:"/apply/core",
-                state:{
-                  info: info
-                }
-              }}>
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
                   //submitInfo(info); //console.log(info);
-                  }}>다음</Button>
-              </Link>
+                  history.push({
+                    pathname: "/apply/core",
+                    state: { info:info }
+                  })
+                }}>다음</Button>
             ) : (
-                <Link to={{
-                pathname:"/apply/general",
-                state:{
-                  info: info
-                }
-              }}>
-                <Button onClick={() => {
-                  generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  //submitInfo(info);
-                  }}>다음</Button>
-              </Link>
+              <Button onClick={() => {
+                generateRequestDto(name, email, tel, major, studentNum, isCore);
+                //submitInfo(info); //console.log(info);
+                history.push({
+                  pathname: "/apply/general",
+                  state: { info:info }
+                })
+              }}>다음</Button>
             ) 
             }
           </div>
