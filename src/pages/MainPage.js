@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Button from "../components/custom/Button";
 
+const MainArea = styled.div`
+    padding-top: 15rem;
+    text-align: center;
+    font-family: "Noto Sans KR";
+`;
+const Title = styled.div`
+    font-size: 5rem;
+    padding: 3rem;
+`;
 const MainPage = () => { 
     return (
-        <>
-        <h1>GDSC Ewha 3rd Recruiting now!</h1>
+        <MainArea>
+        <Title>GDSC Ewha 3rd <br/>Recruiting now!</Title>
         <Link to="/apply">
-        <button>지원하러 가기</button>
+            <Button>지원하러 가기</Button>
         </Link>
         
-        </>
+        </MainArea>
     )
 }
 export default MainPage;
