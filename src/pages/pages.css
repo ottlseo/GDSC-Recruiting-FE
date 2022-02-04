@@ -1,13 +1,17 @@
-html { font-size:16px; }
 @font-face {
     font-family: "GoogleSans";
     src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,800&display=swap');
-
 }
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html { font-size:16px; }
 body {
     font-size:16px; 
-    font-family: "Noto Sans KR";
-    background-image: url('../assets/bg-low-opacity.jpg');
+    font-family: "LeferiPoint-BlackA";
     background-attachment: local;
     
 }

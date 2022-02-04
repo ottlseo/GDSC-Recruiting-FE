@@ -12,6 +12,25 @@ const ApplicationArea = styled.div`
   padding-left: 10%;
 `
 const ApplyPage = () => { 
+  /*
+  const [info, setInfo] = useState({
+    userId: 0,
+    name: '',
+    email: '',
+    tel: '',
+    major: '',
+    studentNum: '',
+    isCore: 0
+  });
+  setInfo();
+  
+  useEffect( () => {
+    
+  }, []);
+  */
+  var info = this.props.location.state.info;
+  
+  console.log(info);
   var temporaryInfo = { //우선 임시로 할당하는 정보
     userId:5, //나중에는 infoPage의 정보 redux로 받아서 넣기
     name:"KIM",
