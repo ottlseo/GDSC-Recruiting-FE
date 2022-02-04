@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import IsCore from "../components/IsCore";
 import Question from "../components/Question";
@@ -12,7 +12,7 @@ import Button from "../components/custom/Button";
 const InfoPage = () => { 
   var info = new Object();
   var userId;
-  const history = useHistory();
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -68,7 +68,7 @@ const InfoPage = () => {
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
                   //submitInfo(info); //console.log(info);
-                  history.push({
+                  navigate({
                     pathname: "/apply/core",
                     state: { info:info }
                   })
@@ -77,7 +77,7 @@ const InfoPage = () => {
               <Button onClick={() => {
                 generateRequestDto(name, email, tel, major, studentNum, isCore);
                 //submitInfo(info); //console.log(info);
-                history.push({
+                navigate({
                   pathname: "/apply/general",
                   state: { info:info }
                 })
