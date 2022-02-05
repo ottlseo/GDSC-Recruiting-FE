@@ -61,11 +61,17 @@ const InfoPage = () => {
           <div className="application_part">
             {
              isCore % 2 === 1 ? (
-              <Link to="/apply/core">
+              <Link to={{
+                pathname: `/apply/core`,
+                state: {
+                  infoState: {info}
+                }
+              }}>
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  submitInfo(info); //console.log(info);
-                  <CoreApplyPage info={info} showing={false}></CoreApplyPage>
+                  //submitInfo(info); //
+                  //console.log(info);
+                  <CoreApplyPage infoState={info} showing={false}></CoreApplyPage>
                   }}>다음</Button>
               </Link>
             ) : (

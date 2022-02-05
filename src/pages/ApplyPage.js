@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
 import "./pages.css";
 import Button from "../components/custom/Button";
+import Swal from "sweetalert2";
 
 const ApplicationArea = styled.div`
   padding: 5rem;
@@ -32,7 +33,21 @@ const ApplyPage = () => {
     const onChange = (e) => {
       const { value, id } = e.target; // 서버 post용
       if(value.length > 500){
-        alert("500자 이내로 입력해주세요.");
+//        alert("500자 이내로 입력해주세요.");
+        const Toast = Swal.mixin({
+          toast:true,
+          position:'center-center',
+          showConfirmButton: false,
+                    timer: 800,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+        })
+        Toast.fire({
+          icon: 'warning',
+          title: '500자 이내로 입력해주세요.'
+      })
         value = value.substr(0, 500);
       }
       setInputs({ // 값 저장
