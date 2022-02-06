@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Question from "./Question";
 
-const Box = styled.div`
+const Wrapper = styled.div`
     padding: 1rem;
-    padding-left: 10%;
+    padding-left: 3rem;
 `;
 const InputLine = styled.input`
     resize: none;
@@ -23,14 +23,14 @@ const InputLine = styled.input`
 const InfoInputArea = ({ questionText, id, value, onChange }) => { 
 
     return (
-        <Box>
+        <Wrapper>
             <Question questionText={questionText}/>
             <InputLine 
                 id={id} 
                 value={value}
                 onChange={onChange}    
             />
-        </Box>
+        </Wrapper>
     )
 }
 export default InfoInputArea;

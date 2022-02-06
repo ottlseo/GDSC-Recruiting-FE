@@ -8,7 +8,6 @@ const Button = styled.button`
     padding: 1rem;
     background: #C4C4C4;
     border-radius: 1rem;
-    font-family: "Noto Sans KR";
     font-size: 1.5rem;
 `
 export default Button;

@@ -5,60 +5,46 @@ import Button from "../components/custom/Button";
 import './pages.css';
 
 const MainArea = styled.div`
-    padding-top: 15rem;
+    padding-top: 13rem;
     text-align: right;
 `;
 const Title = styled.div`
     font-size: 5rem;
-    padding: 3rem;
-    width: 50rem;
-    height: 3rem;
+    padding-left: 4rem;
     text-align:left;
-
     font-family: ROKAFSansBold;
     font-style: normal;
-    font-weight: bold;
-    font-size: 4rem;
     line-height: 146%;
-
-
     color: #000000;
-
 `;
 const Description = styled.div`
-    font-size: 1.5rem;
-    padding: 3rem;
-    width: 60rem;
-    height: 10rem;
-    text-align:right;
-
+    font-size: 4rem;
     font-family: ROKAFSansMedium;
     font-style: normal;
     font-weight: bold;
-    font-size: 4rem;
     line-height: 146%;
-
-
+    padding: 0rem 30rem 4rem 0rem;
+    text-align:right;
     color: #000000;
 `;
 const GoApply = styled.div`
-position: absolute;
-width: 100rem;
-height: 50rem;
-
-color: #0067AC;
+    text-align:right;
+    padding: 0rem 7rem 4rem 0rem;
+    font-size: 5rem;
 
 `;
 const MainPage = () => { 
     return (
+        <div className="main-page">
         <MainArea>
-        <Title>GDSC Ewha<br/>is Now Recruiting!</Title>
-        <Description>Join Us <br/>and Enjoy <br/>Ewha Developer Networking.</Description>
-        <Link to="/apply">
-            <GoApply>Go Apply →</GoApply>
-        </Link>
+            <Title>GDSC Ewha<br/>is Now Recruiting!</Title>
+            <Description>Join Us <br/>and Enjoy <br/>Ewha Developer Networking.</Description>
+            <Link to="/apply">
+                <GoApply>Go Apply →</GoApply>
+            </Link>
         
         </MainArea>
+        </div>
     )
 }
 export default MainPage;
