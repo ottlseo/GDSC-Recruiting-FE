@@ -34,7 +34,6 @@ a:hover { color:orange; text-decoration: none;}
     padding-bottom: 10rem;
 }
 .main-page {
-    
     height: 100vh;
     background-image: url('../assets/bg02.jpg');
     background-repeat : no-repeat;

@@ -66,7 +66,7 @@ const InfoPage = () => {
              isCore % 2 === 1 ? (
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  //submitInfo(info); //console.log(info);
+                  submitInfo(info); //console.log(info);
                   navigate({
                     pathname: "/apply/core",
                     state: { info:info }
@@ -75,7 +75,7 @@ const InfoPage = () => {
             ) : (
               <Button onClick={() => {
                 generateRequestDto(name, email, tel, major, studentNum, isCore);
-                //submitInfo(info); //console.log(info);
+                submitInfo(info); //console.log(info);
                 navigate({
                   pathname: "/apply/general",
                   state: { info:info }
