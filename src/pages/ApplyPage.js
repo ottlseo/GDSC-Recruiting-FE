@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
 import "./pages.css";
 import Button from "../components/custom/Button";
-import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
 
 const ApplicationArea = styled.div`
   padding: 5rem;
@@ -13,6 +13,12 @@ const ApplicationArea = styled.div`
   padding-left: 10%;
 `
 const ApplyPage = () => { 
+  //var info = this.props.location.state.info; //props가 없다는 오류 
+  const location = useLocation();
+  const [info, setInfo] = useState(location.state.info);
+  //const info = location.state.info;
+  
+  console.log(info);
   var temporaryInfo = { //우선 임시로 할당하는 정보
     userId:5, //나중에는 infoPage의 정보 redux로 받아서 넣기
     name:"KIM",

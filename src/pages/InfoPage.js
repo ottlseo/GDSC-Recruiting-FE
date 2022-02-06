@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import IsCore from "../components/IsCore";
 import Question from "../components/Question";
@@ -11,6 +12,8 @@ import CoreApplyPage from "./CoreApplyPage";
 
 const InfoPage = () => { 
   var info = new Object();
+  var userId;
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -43,8 +46,10 @@ const InfoPage = () => {
       const submitInfo = (info) => {
         axios.post(`${SERVER_ADDR}/api/info`, info)
             .then(response => {
-              info.userId = response;
-              console.log(info); });
+              console.log(info);
+              userId = response; 
+              info.userId = userId; 
+            });
       }
     return (
         <>
@@ -61,26 +66,23 @@ const InfoPage = () => {
           <div className="application_part">
             {
              isCore % 2 === 1 ? (
-              <Link to={{
-                pathname: `/apply/core`,
-                state: {
-                  infoState: {info}
-                }
-              }}>
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  //submitInfo(info); //
-                  //console.log(info);
-                  <CoreApplyPage infoState={info} showing={false}></CoreApplyPage>
-                  }}>다음</Button>
-              </Link>
+                  //submitInfo(info); //console.log(info);
+                  navigate({
+                    pathname: "/apply/core",
+                    state: { info:info }
+                  })
+                }}>다음</Button>
             ) : (
-              <Link to="/apply/general">
-                <Button onClick={() => {
-                  generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  submitInfo(info);
-                  }}>다음</Button>
-              </Link>
+              <Button onClick={() => {
+                generateRequestDto(name, email, tel, major, studentNum, isCore);
+                //submitInfo(info); //console.log(info);
+                navigate({
+                  pathname: "/apply/general",
+                  state: { info:info }
+                })
+              }}>다음</Button>
             ) 
             }
           </div>
