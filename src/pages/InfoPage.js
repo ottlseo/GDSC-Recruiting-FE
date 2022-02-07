@@ -63,15 +63,20 @@ const InfoPage = () => {
           <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
           <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
           <div className="application_part">
-            {()=> {
-              generateRequestDto(name, email, tel, major, studentNum, isCore);
-              submitInfo(info); //console.log(info);
-             isCore % 2 === 1 ? (
-               <CoreApplyPage infoState={info}/>
-              ) : (
-                <ApplyPage infoState={info}/>
-              ) 
-            }
+            {
+              isCore % 2 === 1 ? (
+                <Button onClick={() => {
+                  generateRequestDto(name, email, tel, major, studentNum, isCore);
+                  //submitInfo(info); //console.log(info);
+                  navigate("/apply/core", { state: { infoValue:info } })
+                }}>다음</Button>
+            ) : (
+              <Button onClick={() => {
+                generateRequestDto(name, email, tel, major, studentNum, isCore);
+                //submitInfo(info); //console.log(info);
+                navigate("/apply/general", { state: { infoValue:info } })
+              }}>다음</Button>
+            )
           }
           </div>
         </div>

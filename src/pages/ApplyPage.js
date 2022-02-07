@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
@@ -14,21 +14,12 @@ const ApplicationArea = styled.div`
   padding-left: 10%;
 `
 const ApplyPage = () => { 
-  //var info = this.props.location.state.info; //props가 없다는 오류 
   const location = useLocation();
-  //const [info, setInfo] = useState(location.state.info);
-  //const info = location.state.info;
-  
-  //console.log(info);
-  var temporaryInfo = { //우선 임시로 할당하는 정보
-    userId:5, //나중에는 infoPage의 정보 redux로 받아서 넣기
-    name:"KIM",
-    email:"dots",
-    studentNum:"1111111",
-    major:"사이버보안전공",
-    tel:"01095923360",
-    isCore:0,
-  };
+  const [info, setInfo] = useState({});
+  useEffect(()=> {
+    setInfo(location.state.infoValue); //location.state
+  }, [location]);
+
   var application = new Object();
   const [inputs, setInputs] = useState({
       first: "", //질문 1
@@ -40,7 +31,6 @@ const ApplyPage = () => {
     const onChange = (e) => {
       const { value, id } = e.target; // 서버 post용
       if(value.length > 500){
-//        alert("500자 이내로 입력해주세요.");
         const Toast = Swal.mixin({
           toast:true,
           position:'center-center',
@@ -75,12 +65,12 @@ const ApplyPage = () => {
     }
     return ( 
       <ApplicationArea>
-        <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
+        <p>{info.name}님, GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
         <InputArea id='first' value={first} onChange={onChange} questionText={"1. 첫 번째 질문"}/>
         <InputArea id='second' value={second} onChange={onChange} questionText={"2. 두 번째 질문"}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={"3. 세 번째 질문"}/>
         <Button onClick={()=> { 
-          generateRequestDto(temporaryInfo, first, second, third);
+          generateRequestDto(info, first, second, third);
           console.log(application);
           //submitApplication(application); 
         }}>제출</Button>
