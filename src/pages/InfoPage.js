@@ -9,6 +9,7 @@ import InfoInputArea from "../components/InfoInputArea";
 import { SERVER_ADDR } from "../config";
 import Button from "../components/custom/Button";
 import CoreApplyPage from "./CoreApplyPage";
+import ApplyPage from "./ApplyPage";
 
 const InfoPage = () => { 
   var info = new Object();
@@ -62,27 +63,16 @@ const InfoPage = () => {
           <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
           <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
           <div className="application_part">
-            {
+            {()=> {
+              generateRequestDto(name, email, tel, major, studentNum, isCore);
+              submitInfo(info); //console.log(info);
              isCore % 2 === 1 ? (
-                <Button onClick={() => {
-                  generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  submitInfo(info); //console.log(info);
-                  navigate({
-                    pathname: "/apply/core",
-                    state: { info:info }
-                  })
-                }}>다음</Button>
-            ) : (
-              <Button onClick={() => {
-                generateRequestDto(name, email, tel, major, studentNum, isCore);
-                submitInfo(info); //console.log(info);
-                navigate({
-                  pathname: "/apply/general",
-                  state: { info:info }
-                })
-              }}>다음</Button>
-            ) 
+               <CoreApplyPage infoState={info}/>
+              ) : (
+                <ApplyPage infoState={info}/>
+              ) 
             }
+          }
           </div>
         </div>
       </>
