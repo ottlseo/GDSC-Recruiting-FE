@@ -1,13 +1,41 @@
-html { font-size:16px; }
 @font-face {
     font-family: "GoogleSans";
     src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,800&display=swap');
-
+} @font-face {
+    font-family: 'ROKAFSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}@font-face {
+    font-family: 'ROKAFSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html { font-size:16px; }
 body {
     font-size:16px; 
-    font-family: "Noto Sans KR";
-    background-image: url('../assets/bg-low-opacity.jpg');
-    background-attachment: local;
+    font-family: "LeferiPoint-BlackA";
     
+    
+}
+a:link { color:#0067AC; text-decoration: none;}
+a:visited { color:#0067AC; text-decoration: none;}
+a:hover { color:orange; text-decoration: none;}
+
+.wrapper {
+    padding:7rem 5rem 5rem 10rem;
+    padding-bottom: 10rem;
+}
+.main-page {
+    height: 100vh;
+    background-image: url('../assets/bg02.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
 }

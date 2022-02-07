@@ -8,16 +8,14 @@ import MainPage from './pages/MainPage';
 
 const App = () => {
     return(
-      <section className='container'>
-        <BrowserRouter>
+      <>
         <Routes>
           <Route element={<MainPage/>} path="/"/>
           <Route element={<InfoPage/>} path="/apply"/>
           <Route element={<ApplyPage/>} path="/apply/general"/>
           <Route element={<CoreApplyPage/>} path="apply/core"/>
         </Routes>
-        </BrowserRouter>
-      </section>
+      </>
     );
 }
 

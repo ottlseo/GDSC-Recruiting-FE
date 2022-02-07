@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
 import "./pages.css";
 import Button from "../components/custom/Button";
+import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ApplicationArea = styled.div`
   padding: 5rem;
@@ -12,15 +14,12 @@ const ApplicationArea = styled.div`
   padding-left: 10%;
 `
 const ApplyPage = () => { 
-  var temporaryInfo = { //우선 임시로 할당하는 정보
-    userId:5, //나중에는 infoPage의 정보 redux로 받아서 넣기
-    name:"KIM",
-    email:"dots",
-    studentNum:"1111111",
-    major:"사이버보안전공",
-    tel:"01095923360",
-    isCore:0,
-  };
+  const location = useLocation();
+  const [info, setInfo] = useState({});
+  useEffect(()=> {
+    setInfo(location.state.infoValue); //location.state
+  }, [location]);
+
   var application = new Object();
   const [inputs, setInputs] = useState({
       first: "", //질문 1
@@ -32,7 +31,20 @@ const ApplyPage = () => {
     const onChange = (e) => {
       const { value, id } = e.target; // 서버 post용
       if(value.length > 500){
-        alert("500자 이내로 입력해주세요.");
+        const Toast = Swal.mixin({
+          toast:true,
+          position:'center-center',
+          showConfirmButton: false,
+                    timer: 800,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+        })
+        Toast.fire({
+          icon: 'warning',
+          title: '500자 이내로 입력해주세요.'
+      })
         value = value.substr(0, 500);
       }
       setInputs({ // 값 저장
@@ -53,13 +65,14 @@ const ApplyPage = () => {
     }
     return ( 
       <ApplicationArea>
-        <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
+        <p>{info.name}님, GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
         <InputArea id='first' value={first} onChange={onChange} questionText={"1. 첫 번째 질문"}/>
         <InputArea id='second' value={second} onChange={onChange} questionText={"2. 두 번째 질문"}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={"3. 세 번째 질문"}/>
         <Button onClick={()=> { 
-          generateRequestDto(temporaryInfo, first, second, third);
-          submitApplication(application); 
+          generateRequestDto(info, first, second, third);
+          console.log(application);
+          //submitApplication(application); 
         }}>제출</Button>
         
       </ApplicationArea>
