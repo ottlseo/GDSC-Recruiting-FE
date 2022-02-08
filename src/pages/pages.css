@@ -1,32 +1,36 @@
 @font-face {
-    font-family: "GoogleSans";
-    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,800&display=swap');
-} @font-face {
     font-family: 'ROKAFSansBold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}@font-face {
-    font-family: 'ROKAFSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansMedium.woff') format('woff');
-    font-weight: normal;
+} @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
 }
 @font-face {
-    font-family: 'LeferiPoint-BlackA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+} @font-face {
+    font-family: 'SUIT-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
+
 body {
-    font-family: "LeferiPoint-BlackA";
+    font-family: "SUIT-Medium";
+    font-size: 1.2rem;
 }
 a:link { color:#0067AC; text-decoration: none;}
 a:visited { color:#0067AC; text-decoration: none;}
 a:hover { color:orange; text-decoration: none;}
 
 .wrapper {
-    padding:1rem 15% 10rem 15%;
+    padding:1rem 15% 5% 15%;
 }
 .main-page {
     height: 100vh;
@@ -39,13 +43,25 @@ a:hover { color:orange; text-decoration: none;}
     padding-left: 2rem;
     text-align: left;
 }
+.footer {
+    padding: 5% 0 5% 0;
+    padding-left: 8%;
+}
 .apply-page {
     background-image: url('../assets/bg-low-opacity.jpg');
     background-repeat : no-repeat;
     background-size : cover;
 }
+.submit {
+    text-align: center;
+}
 @media (max-width: 767px) {
     body {
-        font-size: 3px;
+        font-size: 0.7rem;
+    }
+}
+@media (max-width: 380px) {
+    body {
+        font-size: 0.4rem;
     }
 }

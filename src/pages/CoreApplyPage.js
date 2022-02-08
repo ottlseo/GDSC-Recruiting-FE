@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import InputArea from "../components/InputArea";
 import styled from "styled-components";
@@ -8,9 +8,11 @@ import "./pages.css";
 import Button from "../components/custom/Button";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const CoreApplyPage = () => { 
   const location = useLocation();
+  const navigate = useNavigate();
   const [info, setInfo] = useState({});
   useEffect(()=> {
     setInfo(location.state.infoValue); //location.state
@@ -74,14 +76,15 @@ const CoreApplyPage = () => {
         <InputArea id='fourth' value={fourth} onChange={onChange} questionText={"4. 코어팀 네 번째 질문"}/>
         <InputArea id='fifth' value={fifth} onChange={onChange} questionText={"5. 코어팀 다섯 번째 질문"}/>
       </div>
-      <Link to='/thankyou'>
+      <div className="submit">
           <Button onClick={()=> { 
             generateRequestDto(info, first, second, third, fourth, fifth);
             console.log(application);
             //submitApplication(application); 
+            navigate("/thankyou");
           }}>제출</Button>
-        </Link>
-        
+      </div>
+      <Footer/>
       </>
        )
     };

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 const InputLine = styled.input`
     resize: none;
-    width: 40%;
+    width: 20rem;
     border-right:0px; 
     border-top:0px; 
     border-left:0px; 

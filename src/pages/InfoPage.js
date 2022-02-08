@@ -8,6 +8,7 @@ import { SERVER_ADDR } from "../config";
 import Button from "../components/custom/Button";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const InfoPage = () => { 
   var info = new Object();
@@ -39,7 +40,7 @@ const InfoPage = () => {
   }
   const onChange = (e) => {
     const { value, id } = e.target;
-    if(id==='name'||id=='studentNum'){
+    if(id==='name'|| id=='studentNum'){
       if(value.length > 10){
         showAlert(10);
         value = value.substr(0, 10);
@@ -112,6 +113,7 @@ const InfoPage = () => {
           }
           </div>
         </div>
+        <Footer/>
       </>
     );
 };

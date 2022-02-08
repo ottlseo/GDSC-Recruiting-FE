@@ -8,6 +8,7 @@ import Button from "../components/custom/Button";
 import { Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ApplyPage = () => { 
   const location = useLocation();
@@ -75,6 +76,7 @@ const ApplyPage = () => {
             //submitApplication(application); 
           }}>제출</Button>
         </Link>
+      <Footer/>
       </>
        )
     };
