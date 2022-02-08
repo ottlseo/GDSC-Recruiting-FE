@@ -39,3 +39,9 @@ a:hover { color:orange; text-decoration: none;}
     background-repeat : no-repeat;
     background-size : cover;
 }
+.header {
+    height: 10%;
+    padding: 1rem;
+    padding-left: 2rem;
+    text-align: left;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../components/custom/Button";
+import Header from "../components/Header";
 import './pages.css';
 
 const MainArea = styled.div`
@@ -35,6 +36,8 @@ const GoApply = styled.div`
 `;
 const MainPage = () => { 
     return (
+        <>
+        <Header/>
         <div className="main-page">
         <MainArea>
             <Title>GDSC Ewha<br/>is Now Recruiting!</Title>
@@ -45,6 +48,7 @@ const MainPage = () => {
         
         </MainArea>
         </div>
+        </>
     )
 }
 export default MainPage;
