@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import IsCore from "../components/IsCore";
-import Question from "../components/Question";
 import InfoInputArea from "../components/InfoInputArea";
 import { SERVER_ADDR } from "../config";
 import Button from "../components/custom/Button";
-import CoreApplyPage from "./CoreApplyPage";
-import ApplyPage from "./ApplyPage";
+import Swal from "sweetalert2";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const InfoPage = () => { 
   var info = new Object();
@@ -23,8 +22,41 @@ const InfoPage = () => {
     studentNum: '',
   });
   const { name, email, tel, major, studentNum } = inputs;
+  const showAlert = (maxLength) => {
+    const Toast = Swal.mixin({
+      toast:true,
+      position:'center-center',
+      showConfirmButton: false,
+                timer: 800,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+    })
+    Toast.fire({
+      icon: 'warning',
+      title: `${maxLength}자 이내로 입력해주세요.`
+  })
+  }
   const onChange = (e) => {
     const { value, id } = e.target;
+    if(id==='name'|| id=='studentNum'){
+      if(value.length > 10){
+        showAlert(10);
+        value = value.substr(0, 10);
+      } 
+    } else if(id==='email'){
+      if(value.length > 50){
+        showAlert(50);
+        value = value.substr(0, 50);
+      } 
+    }
+    else {
+      if(value.length > 25){
+        showAlert(25);
+        value = value.substr(0, 25);
+      }
+    }
     setInputs({
       ...inputs,
       [id]: value
@@ -54,8 +86,9 @@ const InfoPage = () => {
       }
     return (
         <>
-      <div className="wrapper">
-        <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
+        <Header/>
+        <div className="wrapper">
+          <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
           <InfoInputArea questionText="성명" id="name" value={name} onChange={onChange}/>
           <InfoInputArea questionText="이메일" id="email" value={email} onChange={onChange}/>
           <InfoInputArea questionText="전화번호" id="tel" value={tel} onChange={onChange}/>
@@ -80,6 +113,7 @@ const InfoPage = () => {
           }
           </div>
         </div>
+        <Footer/>
       </>
     );
 };

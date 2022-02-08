@@ -5,16 +5,14 @@ import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
 import "./pages.css";
 import Button from "../components/custom/Button";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-const ApplicationArea = styled.div`
-  padding: 5rem;
-  padding-top: 5rem;
-  padding-left: 10%;
-`
 const ApplyPage = () => { 
   const location = useLocation();
+  const navigate = useNavigate();
   const [info, setInfo] = useState({});
   useEffect(()=> {
     setInfo(location.state.infoValue); //location.state
@@ -59,23 +57,29 @@ const ApplyPage = () => {
       application.thirdInput = third;
     }
     const submitApplication = (application) => {
-      axios.post(`${SERVER_ADDR}/api/application`, application)
+      axios.post(`${SERVER_ADDR}/api/application/general`, application)
           .then(response => {
             console.log(application.info.name);}); //이름 출력
     }
     return ( 
-      <ApplicationArea>
+      <>
+      <Header/>
+      <div className="wrapper apply-page">
         <p>{info.name}님, GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
         <InputArea id='first' value={first} onChange={onChange} questionText={"1. 첫 번째 질문"}/>
         <InputArea id='second' value={second} onChange={onChange} questionText={"2. 두 번째 질문"}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={"3. 세 번째 질문"}/>
-        <Button onClick={()=> { 
-          generateRequestDto(info, first, second, third);
-          console.log(application);
-          //submitApplication(application); 
-        }}>제출</Button>
-        
-      </ApplicationArea>
+      </div>
+      <div className="submit">
+          <Button onClick={()=> { 
+            generateRequestDto(info, first, second, third);
+            console.log(application);
+            //submitApplication(application); 
+            navigate("/apply/submit");
+          }}>제출</Button>
+      </div>
+      <Footer/>
+      </>
        )
     };
 export default ApplyPage;
