@@ -5,13 +5,14 @@ import styled from "styled-components";
 import { SERVER_ADDR } from "../config";
 import "./pages.css";
 import Button from "../components/custom/Button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const ApplyPage = () => { 
   const location = useLocation();
+  const navigate = useNavigate();
   const [info, setInfo] = useState({});
   useEffect(()=> {
     setInfo(location.state.infoValue); //location.state
@@ -69,13 +70,14 @@ const ApplyPage = () => {
         <InputArea id='second' value={second} onChange={onChange} questionText={"2. 두 번째 질문"}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={"3. 세 번째 질문"}/>
       </div>
-      <Link to='/thankyou'>
+      <div className="submit">
           <Button onClick={()=> { 
-            generateRequestDto(info, first, second, third);
+            generateRequestDto(info, first, second, third, fourth, fifth);
             console.log(application);
             //submitApplication(application); 
+            navigate("/thankyou");
           }}>제출</Button>
-        </Link>
+      </div>
       <Footer/>
       </>
        )
