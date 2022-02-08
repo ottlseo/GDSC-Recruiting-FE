@@ -81,7 +81,7 @@ const CoreApplyPage = () => {
             generateRequestDto(info, first, second, third, fourth, fifth);
             console.log(application);
             //submitApplication(application); 
-            navigate("/thankyou");
+            navigate("/apply/submit");
           }}>제출</Button>
       </div>
       <Footer/>

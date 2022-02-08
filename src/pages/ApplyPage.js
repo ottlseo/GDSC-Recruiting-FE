@@ -72,10 +72,10 @@ const ApplyPage = () => {
       </div>
       <div className="submit">
           <Button onClick={()=> { 
-            generateRequestDto(info, first, second, third, fourth, fifth);
+            generateRequestDto(info, first, second, third);
             console.log(application);
             //submitApplication(application); 
-            navigate("/thankyou");
+            navigate("/apply/submit");
           }}>제출</Button>
       </div>
       <Footer/>
