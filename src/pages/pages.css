@@ -18,20 +18,15 @@
     font-weight: normal;
     font-style: normal;
 }
-html { font-size:16px; }
 body {
-    font-size:16px; 
     font-family: "LeferiPoint-BlackA";
-    
-    
 }
 a:link { color:#0067AC; text-decoration: none;}
 a:visited { color:#0067AC; text-decoration: none;}
 a:hover { color:orange; text-decoration: none;}
 
 .wrapper {
-    padding:7rem 5rem 5rem 10rem;
-    padding-bottom: 10rem;
+    padding:1rem 15% 10rem 15%;
 }
 .main-page {
     height: 100vh;
@@ -43,4 +38,14 @@ a:hover { color:orange; text-decoration: none;}
     height: 10%;
     padding-left: 2rem;
     text-align: left;
+}
+.apply-page {
+    background-image: url('../assets/bg-low-opacity.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+@media (max-width: 767px) {
+    body {
+        font-size: 3px;
+    }
 }
