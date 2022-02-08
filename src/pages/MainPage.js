@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import './pages.css';
 
 const MainArea = styled.div`
-    padding-top: 13rem;
+    padding-top: 8rem;
     text-align: right;
 `;
 const Title = styled.div`
@@ -37,11 +37,11 @@ const GoApply = styled.div`
 const MainPage = () => { 
     return (
         <>
-        <Header/>
+        
         <div className="main-page">
+        <Header/>
         <MainArea>
             <Title>GDSC Ewha<br/>is Now Recruiting!</Title>
-            <Description>Join Us <br/>and Enjoy <br/>Ewha Developer Networking.</Description>
             <Link to="/apply">
                 <GoApply>Go Apply →</GoApply>
             </Link>
