@@ -6,12 +6,11 @@ const QuestionText = styled.div`
     padding-bottom: 1rem;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1rem;
     line-height: 146%;
     color: #000000;
-    
-    @media (max-width: 767px) {
-        font-size: 3px;
+    @media (max-width: 420px) {
+        font-size: 0.35rem;
     }
 `;
 

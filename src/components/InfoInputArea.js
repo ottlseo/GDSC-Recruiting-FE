@@ -20,14 +20,9 @@ const InputLine = styled.input`
     background: transparent;
     outline: none;
     @media (max-width: 767px) {
-        resize: none;
+        width: 15rem;
+    }@media (max-width: 420px) {
         width: 80%;
-        border-right:0px; 
-        border-top:0px; 
-        border-left:0px; 
-        border-bottom-width:1;
-        background: transparent;
-        outline: none;   
     }
 `; //  height: ${(props) => props.height || "10rem"};
 
