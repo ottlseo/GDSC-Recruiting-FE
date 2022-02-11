@@ -22,6 +22,7 @@ const InfoPage = () => {
     studentNum: '',
   });
   const { name, email, tel, major, studentNum } = inputs;
+  // 글자수 제한 
   const showAlert = (maxLength) => {
     const Toast = Swal.mixin({
       toast:true,
@@ -40,23 +41,20 @@ const InfoPage = () => {
   }
   const onChange = (e) => {
     const { value, id } = e.target;
+    // 영역별로 maxLength를 다르게 제한
     if(id==='name'|| id=='studentNum'){
       if(value.length > 10){
         showAlert(10);
         value = value.substr(0, 10);
-      } 
-    } else if(id==='email'){
+      }} else if(id==='email'){
       if(value.length > 50){
         showAlert(50);
         value = value.substr(0, 50);
-      } 
-    }
-    else {
-      if(value.length > 25){
+      }} else {
+      if(value.length > 25){ //tel, major
         showAlert(25);
         value = value.substr(0, 25);
-      }
-    }
+    }}
     setInputs({
       ...inputs,
       [id]: value
@@ -95,18 +93,18 @@ const InfoPage = () => {
           <InfoInputArea questionText="전공" id="major" value={major} onChange={onChange}/>
           <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
           <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
-          <div className="application_part">
+          <div className="submit">
             {
               isCore % 2 === 1 ? (
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  //submitInfo(info); //console.log(info);
+                  submitInfo(info); //console.log(info);
                   navigate("/apply/core", { state: { infoValue:info } })
                 }}>다음</Button>
             ) : (
               <Button onClick={() => {
                 generateRequestDto(name, email, tel, major, studentNum, isCore);
-                //submitInfo(info); //console.log(info);
+                submitInfo(info); //console.log(info);
                 navigate("/apply/general", { state: { infoValue:info } })
               }}>다음</Button>
             )
