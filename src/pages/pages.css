@@ -22,7 +22,8 @@
 }
 
 body {
-    font-family: "SUIT-Medium";
+    font-family: "Noto Sans KR";
+    color: #FFFFFF;
 }
 a:link { color:#0067AC; text-decoration: none;}
 a:visited { color:#0067AC; text-decoration: none;}
@@ -32,22 +33,21 @@ a:hover { color:orange; text-decoration: none;}
     padding:1rem 15% 5% 15%;
 }
 .main-page {
-    height: 100vh;
-    background-image: url('../assets/bg02.jpg');
-    background-repeat : no-repeat;
+    background-image: url('../assets/bg-web-dark.png');
     background-size : cover;
 }
 .header {
     height: 10%;
     padding-left: 2rem;
-    text-align: left;
+    text-align: right;
 }
 .footer {
     padding: 5% 0 5% 0;
     padding-left: 8%;
+    background: rgba(196, 196, 196, 0.2);
 }
 .apply-page {
-    background-image: url('../assets/bg-low-opacity.jpg');
+    background-image: url('../assets/bg-web.png');
     background-repeat : no-repeat;
     background-size : cover;
 }
@@ -57,6 +57,12 @@ a:hover { color:orange; text-decoration: none;}
 @media (max-width: 767px) {
     body {
         font-size: 0.7rem;
+    }
+    .main-page {
+        height: 100vh;
+        background-image: url('../assets/bg-mobile.png');
+        background-repeat : no-repeat;
+        background-size : cover;
     }
 }
 @media (max-width: 380px) {

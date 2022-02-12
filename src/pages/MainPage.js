@@ -3,21 +3,25 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../components/custom/Button";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import MainHeader from "../components/MainHeader";
 import './pages.css';
+import logo from '../assets/gdsc-logo-default.png';
 
 const MainArea = styled.div`
     padding-top: 8rem;
     text-align: right;
+    text-align:center;
+`;
+const Logo = styled.img`
+    width: 25rem;
 `;
 const Title = styled.div`
-    font-size: 5rem;
+    font-size: 3rem;
     padding-left: 4rem;
-    text-align:left;
+    padding: 3rem;
     font-family: ROKAFSansBold;
     font-style: normal;
     line-height: 146%;
-    color: #000000;
     @media(max-width: 760px){
         font-size: 3rem;
         padding-left: 2rem;
@@ -25,7 +29,6 @@ const Title = styled.div`
         font-family: ROKAFSansBold;
         font-style: normal;
         line-height: 146%;
-        color: #000000;
     }
     @media(max-width: 380px){
         font-size: 2rem;
@@ -34,46 +37,30 @@ const Title = styled.div`
         font-family: ROKAFSansBold;
         font-style: normal;
         line-height: 146%;
-        color: #000000;
     }
 `;
 const Description = styled.div`
-    font-size: 4rem;
+    font-size: 1rem;
     font-family: ROKAFSansMedium;
     font-style: normal;
     font-weight: bold;
     line-height: 146%;
-    padding: 0rem 30rem 4rem 0rem;
-    text-align:right;
-    color: #000000;
-`;
-const GoApply = styled.div`
-    text-align:right;
-    padding: 0rem 7rem 4rem 0rem;
-    font-size: 5rem;
-    @media(max-width: 760px){
-        text-align:right;
-        padding: 0rem 5rem 3rem 0rem;
-        font-size: 3rem;
-    }
-    @media(max-width: 380px){
-        text-align:right;
-        padding: 0rem 3rem 2rem 0rem;
-        font-size: 2rem;
-    }
-
+    padding: 5rem 0rem 10rem 0rem;
+    text-align:center;
 `;
 const MainPage = () => { 
     return (
         <>
         
         <div className="main-page">
-        <Header/>
+        <MainHeader/>
         <MainArea>
-            <Title>GDSC Ewha<br/>is Now Recruiting!</Title>
+            <Logo src={logo} alt={logo}/>
+            <Title>GDSC Ewha Recruiting</Title>
             <Link to="/apply">
-                <GoApply>Go Apply →</GoApply>
+                <Button>Join us</Button>
             </Link>
+            <Description>GDSC Ewha 3-2기 멤버를 모집하고 있습니다. </Description>
         </MainArea>
         <Footer/>
         </div>
