@@ -23,14 +23,18 @@
 
 body {
     font-family: "Noto Sans KR";
+    
+    height: 100vh;
+    background-image: url('../assets/bg-web-dark.png');
+    background-size : cover;
     color: #FFFFFF;
 }
-a:link { color:#0067AC; text-decoration: none;}
-a:visited { color:#0067AC; text-decoration: none;}
+a:link { color:#FFFFFF; text-decoration: none;}
+a:visited { color:#FFFFFF; text-decoration: none;}
 a:hover { color:orange; text-decoration: none;}
 
 .wrapper {
-    padding:1rem 15% 5% 15%;
+    padding:1rem 15% 5% 35%;
 }
 .main-page {
     background-image: url('../assets/bg-web-dark.png');
@@ -42,13 +46,11 @@ a:hover { color:orange; text-decoration: none;}
     text-align: right;
 }
 .footer {
-    padding: 5% 0 5% 0;
+    padding: 3% 0 3% 0;
     padding-left: 8%;
     background: rgba(196, 196, 196, 0.2);
 }
 .apply-page {
-    background-image: url('../assets/bg-web.png');
-    background-repeat : no-repeat;
     background-size : cover;
 }
 .submit {

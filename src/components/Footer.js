@@ -4,7 +4,7 @@ import styled from "styled-components";
 import GoogleDevelopers from '../assets/google-developer.svg';
 
 const Logo = styled.img`
-    width:20%;
+    width:15%;
     padding: 0.5rem;
 `;
 const Footer = () => { 

@@ -40,7 +40,7 @@ const Title = styled.div`
     }
 `;
 const Description = styled.div`
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-family: ROKAFSansMedium;
     font-style: normal;
     font-weight: bold;
