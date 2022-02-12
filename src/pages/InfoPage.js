@@ -85,7 +85,7 @@ const InfoPage = () => {
     return (
         <>
         <Header/>
-        <div className="wrapper">
+        <div className="info-wrapper">
           <p>GDSC Ewha에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
           <InfoInputArea questionText="성명" id="name" value={name} onChange={onChange}/>
           <InfoInputArea questionText="이메일" id="email" value={email} onChange={onChange}/>

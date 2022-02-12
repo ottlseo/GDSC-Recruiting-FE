@@ -68,8 +68,11 @@ const CoreApplyPage = () => {
     return ( 
       <>
       <Header/>
-      <div className="wrapper apply-page">
-        <p>{info.name}님, GDSC Ewha Core team에 지원해주셔서 감사합니다. 아래의 정보를 입력해주세요.</p>
+      <div className="application-wrapper apply-page">
+      <p className="application-description">
+        {info.name}님, GDSC Ewha Core team에 지원해주셔서 감사합니다.<br/>
+        {info.name}님의 열정을 담아 지원서 항목을 작성해주세요.<br/>
+        제출 전 지원서를 백업해두시는 것을 권장하고 있습니다.</p>
         <InputArea id='first' value={first} onChange={onChange} questionText={"1. 코어팀 첫 번째 질문"}/>
         <InputArea id='second' value={second} onChange={onChange} questionText={"2. 코어팀 두 번째 질문"}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={"3. 코어팀 세 번째 질문"}/>
