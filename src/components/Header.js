@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from '../assets/ewha-logo.svg';
 
 const Logo = styled.img`
-    width:20%;
+    width:18%;
 `;
 const Header = () => { 
     return (

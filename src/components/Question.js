@@ -8,7 +8,6 @@ const QuestionText = styled.div`
     font-weight: bold;
     font-size: 1rem;
     line-height: 146%;
-    color: #000000;
     @media (max-width: 420px) {
         font-size: 0.35rem;
     }
