@@ -6,8 +6,6 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import logo from '../assets/gdsc-logo-default.png';
 
-const MainArea = styled.div`
-`;
 const Description = styled.div`
     font-size: 1.15rem;
     font-family: ROKAFSansMedium;
@@ -24,8 +22,8 @@ const SubmitPage = () => {
         <Header/>
         <div className="main-area">
             <img className="big-logo" src={logo} alt={logo}/>
-            <Description>지원이 완료되었습니다.<br/>
-            GDSC Ewha에 관심 가져주셔서 감사드립니다.</Description>
+            <div className="description">지원이 완료되었습니다.<br/>
+            GDSC Ewha에 관심 가져주셔서 감사드립니다.</div>
         </div>
         <Footer/>
         </div>

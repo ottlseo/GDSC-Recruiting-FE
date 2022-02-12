@@ -69,7 +69,7 @@ const CoreApplyPage = () => {
       <>
       <Header/>
       <div className="application-wrapper apply-page">
-      <p className="application-description">
+      <p className="description">
         {info.name}님, GDSC Ewha Core team에 지원해주셔서 감사합니다.<br/>
         {info.name}님의 열정을 담아 지원서 항목을 작성해주세요.<br/>
         제출 전 지원서를 백업해두시는 것을 권장하고 있습니다.</p>
@@ -83,7 +83,7 @@ const CoreApplyPage = () => {
           <Button onClick={()=> { 
             generateRequestDto(info, first, second, third, fourth, fifth);
             console.log(application);
-            //submitApplication(application); 
+            submitApplication(application); 
             navigate("/apply/submit");
           }}>제출</Button>
       </div>

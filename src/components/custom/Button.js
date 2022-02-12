@@ -10,6 +10,11 @@ const Button = styled.button`
     background: #4285F4;
     border-radius: 1rem;
     font-size: 1.5rem;
-    
+    @media (max-width: 1450px) {
+        width: 12rem;
+        height: 4rem;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
 `
 export default Button;
