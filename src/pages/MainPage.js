@@ -7,14 +7,6 @@ import MainHeader from "../components/MainHeader";
 import './pages.css';
 import logo from '../assets/gdsc-logo-default.png';
 
-const MainArea = styled.div`
-    padding-top: 8rem;
-    text-align: right;
-    text-align:center;
-`;
-const Logo = styled.img`
-    width: 25rem;
-`;
 const Title = styled.div`
     font-size: 3rem;
     padding-left: 4rem;
@@ -54,14 +46,14 @@ const MainPage = () => {
         
         <div className="main-page">
         <MainHeader/>
-        <MainArea>
-            <Logo src={logo} alt={logo}/>
+        <div className="main-area">
+            <img className="big-logo" src={logo} alt={logo}/>
             <Title>GDSC Ewha Recruiting</Title>
             <Link to="/apply">
                 <Button>Join us</Button>
             </Link>
             <Description>GDSC Ewha 3-2기 멤버를 모집하고 있습니다. </Description>
-        </MainArea>
+        </div>
         <Footer/>
         </div>
         </>

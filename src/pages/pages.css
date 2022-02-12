@@ -40,7 +40,14 @@ a:hover { color:orange; text-decoration: none;}
     background-image: url('../assets/bg-web-dark.png');
     background-size : cover;
 }
-
+.main-area{
+    padding-top: 8rem;
+    text-align: right;
+    text-align:center;
+}
+.big-logo {
+    width: 18rem;
+}
 .main_header {
     height: 10%;
     padding-left: 2rem;
@@ -61,6 +68,15 @@ a:hover { color:orange; text-decoration: none;}
 }
 .submit {
     text-align: center;
+}
+
+@media (max-width: 1050px) {
+    body {
+        font-size: 1rem;
+    }
+    .main-area{
+        padding-top: 5rem;
+    }
 }
 @media (max-width: 767px) {
     body {
