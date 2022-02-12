@@ -34,16 +34,22 @@ a:visited { color:#FFFFFF; text-decoration: none;}
 a:hover { color:orange; text-decoration: none;}
 
 .wrapper {
-    padding:1rem 15% 5% 35%;
+    padding:1rem 30% 5% 30%;
 }
 .main-page {
     background-image: url('../assets/bg-web-dark.png');
     background-size : cover;
 }
-.header {
+
+.main_header {
     height: 10%;
     padding-left: 2rem;
     text-align: right;
+}
+.header {
+    height: 10%;
+    padding-left: 2rem;
+    text-align: left;
 }
 .footer {
     padding: 3% 0 3% 0;

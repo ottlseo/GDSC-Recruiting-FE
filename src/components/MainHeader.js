@@ -9,7 +9,7 @@ const Menu = styled.div`
 `
 const Header = () => { 
     return (
-    <div className="header">
+    <div className="main_header">
         <Menu>
             <a href="">About us      </a>
             <a href="">CoC      </a>
