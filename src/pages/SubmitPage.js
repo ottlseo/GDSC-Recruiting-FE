@@ -6,15 +6,6 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import logo from '../assets/gdsc-logo-default.png';
 
-const Description = styled.div`
-    font-size: 1.15rem;
-    font-family: ROKAFSansMedium;
-    font-style: normal;
-    font-weight: bold;
-    line-height: 146%;
-    padding: 5rem 0rem 10rem 0rem;
-    text-align:center;
-`;
 const SubmitPage = () => { 
     return (
         <>
