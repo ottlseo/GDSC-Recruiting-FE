@@ -59,7 +59,7 @@ const InfoPage = () => {
       [id]: value
     });
   };
-  const [userId, setUserId] = useState(0); //성공적으로 post되면 자동생성되는 userId 값
+  const [userId, setUserId] = useState(0); 
   const [isCore, setIsCore] = useState(0);
   const onClickIsCore = (id) => {
       setIsCore(id);
@@ -75,11 +75,8 @@ const InfoPage = () => {
       }
       const submitInfo = async(info, link) => {
         let response = await axios.post(`${SERVER_ADDR}/api/info`, info);
-        setUserId(response.data);
-        console.log(userId);
-        info.userId = userId; 
-        console.log(info);
         navigate(`/apply/${link}`, { state: { infoValue:info, userIdValue:response.data } })
+        // userId (성공적으로 post되면 자동생성되는 값)도 같이 보내준다
       }
     return (
         <>
