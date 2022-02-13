@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const QuestionText = styled.div`
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     font-style: normal;
     font-weight: bold;
     font-size: 1rem;

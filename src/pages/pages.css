@@ -22,22 +22,23 @@
 }
 
 body {
-    font-family: "Noto Sans KR";
+    font-family: "Pretendard-Regular";
     height: 100vh;
-    background-image: url('../assets/bg-web.png');
+    background-image: url('../assets/bg/bg-web.png');
     background-size : cover;
     color: #000000;
 }
 a:link { color:#000000; text-decoration: none;}
 a:visited { color:#000000; text-decoration: none;}
 a:hover { color:orange; text-decoration: none;}
-
-.info-wrapper {
-    padding: 0 30% 5% 30%;
+  
+.wrapper {
+    padding: 0 20% 5% 20%;
 }
-
-.application-wrapper {
-    padding:1rem 20% 5% 20%;
+.info-wrapper {
+    background: rgba(196, 196, 196, 0.2);
+    border-radius: 5%;
+    text-align: center;
 }
 .application-description{
     line-height: 120%;
@@ -46,14 +47,25 @@ a:hover { color:orange; text-decoration: none;}
     background-size : cover;
 }
 .main-area{
-    padding-top: 8rem;
+    padding-top: 5rem;
     padding-bottom: 7rem;
-    text-align: right;
     text-align:center;
 }
 .big-logo {
     width: 25rem;
+    animation-duration: 1s;
+    animation-name: slideDown;
 }
+@keyframes slideDown {
+    from {
+      margin-top: -10%;
+    }
+  
+    to {
+      margin-top: 0%;
+    }
+  }
+  
 .main-title {
     font-size: 3rem;
     padding-left: 4rem;
@@ -61,21 +73,37 @@ a:hover { color:orange; text-decoration: none;}
     font-family: ROKAFSansBold;
     font-style: normal;
     line-height: 146%;
+    animation-duration: 1s;
+    animation-name: slideUp;
 }
+@keyframes slideUp {
+    from {
+      margin-top: 20%;
+    }
+  
+    to {
+      margin-top: 0%;
+    }
+  }
+  
 .description {
-    font-size: 1.15rem;
+    font-size: 0.5rem;
     margin: 0;
-    font-family: ROKAFSansMedium;
     font-style: normal;
     font-weight: bold;
+    color:rgb(120, 120, 120);
     line-height: 146%;
     text-align:center;
-    padding-top: 3rem;
 }
 .main_header {
     height: 10%;
-    padding-left: 2rem;
+    padding: 3rem 2rem 0 0;
     text-align: right;
+}
+.main_menu {
+    float: right;
+    padding: 1rem;
+    font-family: "SUIT-SemiBold";
 }
 .header {
     height: 10%;
@@ -85,22 +113,25 @@ a:hover { color:orange; text-decoration: none;}
 .footer {
     padding: 3% 0 3% 0;
     padding-left: 8%;
-    background: rgba(196, 196, 196, 0.2);
+    background: rgb(249, 250, 251);
+    font-size: 0.5rem;
 }
 .apply-page {
     background-size : cover;
 }
+.application-wrapper {
+    padding: 0 15% 5% 15%;
+    text-align: center;
+}
 .submit {
     text-align: center;
+    padding-top: 2rem;
     padding-bottom: 2rem;
 }
 /*---------------- laptop ------------------*/
 @media (max-width: 1450px) {
     body {
         font-size: 1rem;
-    }
-    .main-area{
-        padding-top: 3rem;
     }
     .big-logo {
     width: 16rem;
@@ -119,7 +150,7 @@ a:hover { color:orange; text-decoration: none;}
     }
     .main-page {
         height: 100vh;
-        background-image: url('../assets/bg-mobile.png');
+        background-image: url('../assets/bg/bg-mobile.png');
         background-repeat : no-repeat;
         background-size : cover;
     }
@@ -129,6 +160,13 @@ a:hover { color:orange; text-decoration: none;}
     .big-logo {
     width: 13rem;
     }
+    .wrapper {
+        padding: 0 5% 8% 8%;
+    }
+    .description{
+        font-size: 0.5rem;
+    }
+    
 }
 @media (max-width: 380px) {
     body {
@@ -137,4 +175,8 @@ a:hover { color:orange; text-decoration: none;}
     .big-logo {
     width: 8rem;
     }
+    .wrapper {
+        padding: 0 15% 5% 15%;
+    }
+    
 }

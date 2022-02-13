@@ -24,13 +24,14 @@ const InputBox = styled.textarea`
 const TextCounts = styled.div`
     left: 10%;
     top: 30%;
-    font-family: Noto Sans KR;
+    padding-bottom: 1rem;
 `;
 const InputArea = ({ questionText, id, value, onChange }) => {
     
     return (
         <Box>
             <Question questionText={questionText}/>
+            <TextCounts>{value.length+" / 500"}</TextCounts>
             <InputBox 
                 id={id} 
                 value={value}
@@ -39,7 +40,6 @@ const InputArea = ({ questionText, id, value, onChange }) => {
                 onKeyPress={onChange}
                 onChange={onChange}
                 placeholder="내용을 입력해주세요."/>
-            <TextCounts>{value.length+" / 500"}</TextCounts>
         </Box>
     )
 }

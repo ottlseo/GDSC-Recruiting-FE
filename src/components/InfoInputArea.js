@@ -3,24 +3,23 @@ import styled from "styled-components";
 import Question from "./Question";
 
 const Wrapper = styled.div`
-    padding: 1rem;
-    padding-left: 3rem;
-    @media (max-width: 767px) {
-        padding: 1rem;
-        padding-left: 1rem;
-    }
+    padding: 2rem;
+    text-align: center;
 `;
 const InputLine = styled.input`
     resize: none;
-    width: 20rem;
+    width: 15rem;
+    height: 2rem;
     border-right:0px; 
     border-top:0px; 
     border-left:0px; 
     border-bottom-width:1;
     background: transparent;
+    text-align: center;
     outline: none;
-    @media (max-width: 767px) {
-        width: 15rem;
+    @media (max-width: 750px) {
+        width: 50%;
+        height: 1.5rem;
     }@media (max-width: 420px) {
         width: 80%;
     }
