@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-//import radiobuttonTrue from "../../assets/recruitment/radiobutton/radiobutton-true.png";
-//import radiobuttonFalse from "../../assets/recruitment/radiobutton/radiobutton-false.png";
+import btn_checked from "../../assets/custom/button-checked.png";
+import btn_unchecked from "../../assets/custom/button-unchecked.jpg";
 
 const Image = styled.img`
   width: 1.5rem;
   height: 1.5rem;
 `;
-
 const RadioButton = ({ checked, onClick }) => (
   <>
     {
       checked ?
-        <button onClick={onClick} alt="radiobuttonTrue" /> : //src={radiobuttonTrue} 
-        <button onClick={onClick} alt="radiobuttonFalse" /> //src={radiobuttonFalse} 
+        <Image onClick={onClick} src={btn_checked} alt="checked" /> : 
+        <Image onClick={onClick} src={btn_unchecked} alt="unchecked" /> 
     }
   </>
 );

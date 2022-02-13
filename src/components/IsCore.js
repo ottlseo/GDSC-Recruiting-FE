@@ -6,32 +6,24 @@ import Question from "./Question";
 const Wrapper = styled.div`
   padding: 3rem;
 `;
-const Grid = styled.div`
-  gap: 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 3rem;
-`;
 const IsCore = ({answer, onClickAnswer}) => {
     return (
       <Wrapper>
         <Question questionText="Core Team 지원 여부"/>
-        <Grid>
-              <RadioButton
+        <RadioButton
                 checked={answer === 1}
                 onClick={() => {
                   onClickAnswer(1);
-              }}
-              />
-              <p>네</p>
-              <RadioButton
+            }}
+        />
+        <p>네</p>
+        <RadioButton
                 checked={answer === 2}
                 onClick={() => {
                   onClickAnswer(0);
-              }}
-              />
-              <p>아니오</p>
-        </Grid>
+            }}
+        />
+        <p>아니오</p>
       </Wrapper>
     );
 };

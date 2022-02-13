@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import character from "../assets/character/congratuation.svg";
 
 const ApplyPage = () => { 
   const location = useLocation();
@@ -68,6 +69,7 @@ const ApplyPage = () => {
       <>
       <Header/>
       <div className="application-wrapper apply-page">
+      <img src={character} className="memoji"/>
       <p className="description">
         {info.name}님, GDSC Ewha에 지원해주셔서 감사합니다.<br/>
         {info.name}님의 열정을 담아 지원서 항목을 작성해주세요.<br/>

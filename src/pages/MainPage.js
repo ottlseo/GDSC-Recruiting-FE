@@ -8,45 +8,24 @@ import './pages.css';
 import logo from '../assets/gdsc-logo-default.png';
 import logo_gif from '../assets/xhyun-gif.gif';
 
-const Title = styled.div`
-    font-size: 3rem;
-    padding-left: 4rem;
-    padding: 3rem;
-    font-family: ROKAFSansBold;
-    font-style: normal;
-    line-height: 146%;
-    @media(max-width: 760px){
-        font-size: 3rem;
-        padding-left: 2rem;
-        text-align:left;
-        font-family: ROKAFSansBold;
-        font-style: normal;
-        line-height: 146%;
-    }
-    @media(max-width: 380px){
-        font-size: 2rem;
-        padding-left: 1rem;
-        text-align:left;
-        font-family: ROKAFSansBold;
-        font-style: normal;
-        line-height: 146%;
-    }
-`;
 const MainPage = () => { 
     return (
     <>        
-        <div className="main-page">
+    <div className="main-page">
         <MainHeader/>
         <div className="main-area">
-            <img className="big-logo" src={logo_gif} alt={logo_gif}/>
+            <img className="big-logo-main" src={logo} alt={logo}/>
             <div className="main-title">GDSC Ewha Recruiting</div>
             <Link to="/apply">
                 <Button>Join us</Button>
             </Link>
-            <div className="description">GDSC Ewha 3-2기 멤버를 모집하고 있습니다. </div>
+            <div className="main-description">
+                Google Developer Student Clubs Ewha 는 <br/>이화 개발자 간의 네트워킹과 상호 성장을 목표로 하는 커뮤니티입니다.<br/>
+                GDSC Ewha와 함께 할 3-2기 New Member를 모집하고 있습니다. <br/>
+                </div>
         </div>
         <Footer/>
-        </div>
+    </div>
     </>
     )
 }

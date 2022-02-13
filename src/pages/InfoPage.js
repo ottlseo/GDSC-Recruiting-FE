@@ -9,6 +9,7 @@ import Button from "../components/custom/Button";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import character from "../assets/character/ta-da.svg";
 
 const InfoPage = () => { 
   var info = new Object();
@@ -81,7 +82,9 @@ const InfoPage = () => {
     return (
         <>
         <Header/>
-        <div className="info-wrapper">
+        <div className="wrapper">
+          <div className="info-wrapper">
+          <img src={character}/>
           <p className="description">GDSC Ewha에 지원해주셔서 감사합니다.<br/>아래의 정보를 입력해주세요.</p>
           <InfoInputArea questionText="성명" id="name" value={name} onChange={onChange}/>
           <InfoInputArea questionText="이메일" id="email" value={email} onChange={onChange}/>
@@ -89,6 +92,7 @@ const InfoPage = () => {
           <InfoInputArea questionText="전공" id="major" value={major} onChange={onChange}/>
           <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
           <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
+          </div>
           <div className="submit">
             {
               isCore % 2 === 1 ? (

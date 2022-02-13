@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const QuestionText = styled.div`
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     font-style: normal;
     font-weight: bold;
     font-size: 1rem;
     line-height: 146%;
     @media (max-width: 420px) {
-        font-size: 0.35rem;
+        font-size: 0.8rem;
     }
 `;
 
