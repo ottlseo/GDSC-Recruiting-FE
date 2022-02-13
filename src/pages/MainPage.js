@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import MainHeader from "../components/MainHeader";
 import './pages.css';
 import logo from '../assets/gdsc-logo-default.png';
+import logo_gif from '../assets/xhyun-gif.gif';
 
 const Title = styled.div`
     font-size: 3rem;
@@ -37,7 +38,7 @@ const MainPage = () => {
         <div className="main-page">
         <MainHeader/>
         <div className="main-area">
-            <img className="big-logo" src={logo} alt={logo}/>
+            <img className="big-logo" src={logo_gif} alt={logo_gif}/>
             <div className="main-title">GDSC Ewha Recruiting</div>
             <Link to="/apply">
                 <Button>Join us</Button>
