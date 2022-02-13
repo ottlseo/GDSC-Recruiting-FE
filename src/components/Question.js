@@ -9,7 +9,7 @@ const QuestionText = styled.div`
     font-size: 1rem;
     line-height: 146%;
     @media (max-width: 420px) {
-        font-size: 0.35rem;
+        font-size: 0.8rem;
     }
 `;
 

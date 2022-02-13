@@ -15,10 +15,11 @@ const InputBox = styled.textarea`
     height: 80%;
     left: 10%;
     top: 20%;
-    font-family: Noto Sans KR;
+    font-size: 0.8rem;
     border-radius: 0.5rem;
     color:white;
     background: #3D3D3D;
+    font-family: "Pretendard-Regular";
     padding: 1rem;
 `;
 const TextCounts = styled.div`

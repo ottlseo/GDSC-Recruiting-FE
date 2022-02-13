@@ -48,11 +48,14 @@ a:hover { color:orange; text-decoration: none;}
 }
 .main-area{
     padding-top: 5rem;
-    padding-bottom: 7rem;
+    padding-bottom: 5rem;
     text-align:center;
 }
 .big-logo {
-    width: 25rem;
+    width: 15rem;
+}
+.big-logo-main {
+    width: 15rem;
     animation-duration: 1s;
     animation-name: slideDown;
 }
@@ -69,7 +72,7 @@ a:hover { color:orange; text-decoration: none;}
 .main-title {
     font-size: 3rem;
     padding-left: 4rem;
-    padding: 3rem;
+    padding: 2.5rem;
     font-family: ROKAFSansBold;
     font-style: normal;
     line-height: 146%;
@@ -85,9 +88,18 @@ a:hover { color:orange; text-decoration: none;}
       margin-top: 0%;
     }
   }
-  
+.main-description {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 1.5rem;
+    font-style: normal;
+    font-weight: bold;
+    color:rgb(120, 120, 120);
+    line-height: 146%;
+    text-align:center;
+}
 .description {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     margin: 0;
     font-style: normal;
     font-weight: bold;
@@ -123,12 +135,15 @@ a:hover { color:orange; text-decoration: none;}
     padding: 0 15% 5% 15%;
     text-align: center;
 }
+.memoji {
+    width: 20%;
+}
 .submit {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-/*---------------- laptop ------------------*/
+/*---------------- laptop 13 ------------------*/
 @media (max-width: 1450px) {
     body {
         font-size: 1rem;
@@ -140,8 +155,7 @@ a:hover { color:orange; text-decoration: none;}
         font-size: 2rem;
     }
     .description {
-        font-size: 1rem;
-        padding-top: 2rem;
+        font-size: 0.7rem;
     }
 }
 @media (max-width: 767px) {
@@ -155,7 +169,7 @@ a:hover { color:orange; text-decoration: none;}
         background-size : cover;
     }
     .main-area{
-        padding-top: 10rem;
+        padding-top: 8rem;
     }
     .big-logo {
     width: 13rem;
@@ -163,8 +177,8 @@ a:hover { color:orange; text-decoration: none;}
     .wrapper {
         padding: 0 5% 8% 8%;
     }
-    .description{
-        font-size: 0.5rem;
+    .memoji {
+        width: 40%;
     }
     
 }

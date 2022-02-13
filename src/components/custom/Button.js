@@ -8,11 +8,12 @@ const Button = styled.button`
     color: #FFFFFF;
     padding: 1rem;
     background: #4285F4;
-    border-radius: 1rem;
+    border-radius: 2rem;
+    border:none;
     font-size: 1.5rem;
     @media (max-width: 1450px) {
-        width: 12rem;
-        height: 4rem;
+        width: 9rem;
+        height: 3rem;
         font-size: 1.2rem;
         padding: 0.5rem;
     }
