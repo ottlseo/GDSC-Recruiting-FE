@@ -12,7 +12,6 @@ import Footer from "../components/Footer";
 
 const InfoPage = () => { 
   var info = new Object();
-  var userId;
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
@@ -42,7 +41,7 @@ const InfoPage = () => {
   const onChange = (e) => {
     const { value, id } = e.target;
     // 영역별로 maxLength를 다르게 제한
-    if(id==='name'|| id=='studentNum'){
+    if(id==='name'|| id==='studentNum'){
       if(value.length > 10){
         showAlert(10);
         value = value.substr(0, 10);
@@ -60,7 +59,7 @@ const InfoPage = () => {
       [id]: value
     });
   };
-  
+  const [userId, setUserId] = useState(0); 
   const [isCore, setIsCore] = useState(0);
   const onClickIsCore = (id) => {
       setIsCore(id);
@@ -74,13 +73,10 @@ const InfoPage = () => {
         info.tel = tel;
         info.isCore = isCore; 
       }
-      const submitInfo = (info) => {
-        axios.post(`${SERVER_ADDR}/api/info`, info)
-            .then(response => {
-              console.log(info);
-              userId = response; 
-              info.userId = userId; 
-            });
+      const submitInfo = async(info, link) => {
+        let response = await axios.post(`${SERVER_ADDR}/api/info`, info);
+        navigate(`/apply/${link}`, { state: { infoValue:info, userIdValue:response.data } })
+        // userId (성공적으로 post되면 자동생성되는 값)도 같이 보내준다
       }
     return (
         <>
@@ -98,14 +94,12 @@ const InfoPage = () => {
               isCore % 2 === 1 ? (
                 <Button onClick={() => {
                   generateRequestDto(name, email, tel, major, studentNum, isCore);
-                  submitInfo(info); //console.log(info);
-                  navigate("/apply/core", { state: { infoValue:info } })
+                  submitInfo(info, `core`); //console.log(info);
                 }}>다음</Button>
             ) : (
               <Button onClick={() => {
                 generateRequestDto(name, email, tel, major, studentNum, isCore);
-                submitInfo(info); //console.log(info);
-                navigate("/apply/general", { state: { infoValue:info } })
+                submitInfo(info, `general`); //console.log(info);
               }}>다음</Button>
             )
           }

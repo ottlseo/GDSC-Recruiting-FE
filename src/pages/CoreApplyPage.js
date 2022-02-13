@@ -13,11 +13,14 @@ import Footer from "../components/Footer";
 const CoreApplyPage = () => { 
   const location = useLocation();
   const navigate = useNavigate();
+  
   const [info, setInfo] = useState({});
+  const [userId, setUserId] = useState(0);
   useEffect(()=> {
     setInfo(location.state.infoValue); //location.state
+    setUserId(location.state.userIdValue);
   }, [location]);
-
+  
   var application = new Object();
   const [inputs, setInputs] = useState({
       first: "", 
@@ -53,6 +56,7 @@ const CoreApplyPage = () => {
       });
     };
     const generateRequestDto = (info, first, second, third, fourth, fifth) => {
+      info.userId = userId;
       application.info = info; 
       application.firstInput = first;
       application.secondInput = second;
