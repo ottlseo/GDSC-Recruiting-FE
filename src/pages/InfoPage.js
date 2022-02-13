@@ -79,7 +79,7 @@ const InfoPage = () => {
         console.log(userId);
         info.userId = userId; 
         console.log(info);
-        navigate(`/apply/${link}`, { state: { infoValue:info } })
+        navigate(`/apply/${link}`, { state: { infoValue:info, userIdValue:response.data } })
       }
     return (
         <>
