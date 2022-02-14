@@ -74,10 +74,9 @@ a:hover { color:orange; text-decoration: none;}
   }
   
 .main-title {
-    font-size: 3rem;
+    width: 15rem;
     padding-left: 4rem;
     padding: 2.5rem;
-    font-family: ROKAFSansBold;
     font-style: normal;
     line-height: 146%;
     animation-duration: 1s;
@@ -138,6 +137,12 @@ a:hover { color:orange; text-decoration: none;}
     background: rgb(249, 250, 251);
     font-size: 0.5rem;
 }
+.footer-main{
+    padding: 3% 0 3% 0;
+    padding-left: 8%;
+    background: rgb(249, 250, 251);
+    font-size: 0.5rem;
+}
 .apply-page {
     background-size : cover;
 }
@@ -161,9 +166,6 @@ a:hover { color:orange; text-decoration: none;}
     .big-logo {
     width: 16rem;
     }
-    .main-title {
-        font-size: 2rem;
-    }
     .description {
         font-size: 0.7rem;
     }
@@ -182,8 +184,7 @@ a:hover { color:orange; text-decoration: none;}
         padding-top: 8rem;
     }
     .main-title {
-        font-size: 1.7rem;
-        padding-bottom: 2rem;
+        padding: 3rem;
     }
     .main-description{
         padding-top: 2.5rem;
@@ -210,11 +211,17 @@ a:hover { color:orange; text-decoration: none;}
     .memoji {
         width: 25%;
     }
-    
+    .footer-main{
+        position: fixed;
+        bottom: 0;
+    }
 }
 @media (max-width: 390px) {
     body {
         font-size: 0.3rem;
+    }
+    .main-title {
+        width: 13rem;
     }
     .big-logo {
     width: 7rem;
@@ -231,5 +238,8 @@ a:hover { color:orange; text-decoration: none;}
     .core-button-wrapper {
         padding: 0 0 2rem 0;
     }
-    
+    .footer-main{
+        position: inherit;
+        bottom: 0;
+    }
 }

@@ -75,7 +75,7 @@ const ApplyPage = () => {
             console.log(application.info.name);}); //이름 출력
     }
     const username = info.name;
-    return ( //<InputArea id='fourth' value={fourth} onChange={onChange} questionText={`GDSC Ewha Member로 함께 하게 된다면 구체적인 활동 계획을 알려주세요.`}/>
+    return (
       <>
       <Header/>
       <div className="application-wrapper apply-page">
@@ -89,10 +89,9 @@ const ApplyPage = () => {
         <InputArea id='third' value={third} onChange={onChange} questionText={`${username}님이 가장 열심히 참여했던 프로젝트를 소개해주세요.`}/>
         <InputArea id='fourth' value={fourth} onChange={onChange} questionText={`GDSC Ewha Member로 함께 하게 된다면 구체적인 활동 계획을 알려주세요.`}/>
         <br/>
-        <InfoInputArea questionText="관심 있는 개발 분야, 또는 주로 사용하는 개발 언어를 알려주세요." id="stacks" value={stacks} onChange={onChange}/>
-        <InfoInputArea questionText="포트폴리오 링크를 첨부해주세요. (Github 혹은 기술 블로그, Notion 등)" id="portfolio" value={portfolio} onChange={onChange}/>
-        <InfoInputArea questionText="GDSC Ewha를 어떻게 알게 되었나요?" id="paths" value={paths} onChange={onChange}/>
-        
+        <InfoInputArea questionText="관심 있는 개발 분야와 기술 스택에 대해 알려주세요." id="stacks" value={stacks} onChange={onChange} placeholder="ex. Backend(Java/ Spring/ NodeJS), Cloud, DevOps, etc..."/>
+        <InfoInputArea questionText="포트폴리오 링크를 첨부해주세요." id="portfolio" value={portfolio} onChange={onChange} placeholder="하나의 링크에 정리하여 제출 바랍니다. (ex. Notion)"/>
+        <InfoInputArea questionText="GDSC Ewha를 어떻게 알게 되었나요?" id="paths" value={paths} onChange={onChange} placeholder="ex. 지인 소개, 팀블로그"/>
       </div>
       <div className="submit">
           <Button onClick={()=> { 

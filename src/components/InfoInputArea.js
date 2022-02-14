@@ -25,7 +25,7 @@ const InputLine = styled.input`
     }
 `; //  height: ${(props) => props.height || "10rem"};
 
-const InfoInputArea = ({ questionText, id, value, onChange }) => { 
+const InfoInputArea = ({ questionText, id, value, onChange, placeholder }) => { 
 
     return (
         <Wrapper>
@@ -34,6 +34,7 @@ const InfoInputArea = ({ questionText, id, value, onChange }) => {
                 id={id} 
                 value={value}
                 onChange={onChange}    
+                placeholder={placeholder}
             />
         </Wrapper>
     )
