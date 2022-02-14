@@ -17,11 +17,13 @@ const InputBox = styled.textarea`
     top: 20%;
     font-size: 0.8rem;
     border-radius: 0.5rem;
-    color:white;
-    background: #3D3D3D;
+    color:#000000;
+    background: #C5C5C5;
     font-family: "Pretendard-Regular";
     padding: 1rem;
 `;
+//color:#FFFFFF;
+//background: #3D3D3D; 
 const TextCounts = styled.div`
     left: 10%;
     top: 30%;

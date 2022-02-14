@@ -17,5 +17,11 @@ const Button = styled.button`
         font-size: 1.2rem;
         padding: 0.5rem;
     }
+    @media (max-width: 767px) {
+        width: 6rem;
+        height: 2rem;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
 `
 export default Button;

@@ -84,8 +84,7 @@ const ApplyPage = () => {
         {username}님, GDSC Ewha에 지원해주셔서 감사합니다.<br/>
         {username}님의 열정을 담아 지원서 항목을 작성해주세요.<br/>
         제출 전 지원서를 백업해두시는 것을 권장하고 있습니다.</p>
-        <InputArea id='first' value={first} onChange={onChange} questionText={`GDSC 커뮤니티 활동을 통해 얻고 싶은 점이 무엇인가요?\n
-        지원한 동기에 대해 알려주세요.`}/>
+        <InputArea id='first' value={first} onChange={onChange} questionText={`GDSC 커뮤니티 활동을 통해 얻고 싶은 점이 무엇인가요?\n지원한 동기에 대해 알려주세요.`}/>
         <InputArea id='second' value={second} onChange={onChange} questionText={`${username}님이 생각하는 커뮤니티의 의미에 대해 알려주세요.`}/>
         <InputArea id='third' value={third} onChange={onChange} questionText={`${username}님이 가장 열심히 참여했던 프로젝트를 소개해주세요.`}/>
         <InputArea id='fourth' value={fourth} onChange={onChange} questionText={`GDSC Ewha Member로 함께 하게 된다면 구체적인 활동 계획을 알려주세요.`}/>
@@ -93,6 +92,7 @@ const ApplyPage = () => {
         <InfoInputArea questionText="관심 있는 개발 분야, 또는 주로 사용하는 개발 언어를 알려주세요." id="stacks" value={stacks} onChange={onChange}/>
         <InfoInputArea questionText="포트폴리오 링크를 첨부해주세요. (Github 혹은 기술 블로그, Notion 등)" id="portfolio" value={portfolio} onChange={onChange}/>
         <InfoInputArea questionText="GDSC Ewha를 어떻게 알게 되었나요?" id="paths" value={paths} onChange={onChange}/>
+        
       </div>
       <div className="submit">
           <Button onClick={()=> { 

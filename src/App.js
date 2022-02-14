@@ -6,16 +6,18 @@ import ApplyPage from './pages/ApplyPage';
 import InfoPage from './pages/InfoPage';
 import MainPage from './pages/MainPage';
 import SubmitPage from './pages/SubmitPage';
+import NotFound from './pages/NotFoundPage';
 
 const App = () => {
     return(
       <>
         <Routes>
-          <Route element={<MainPage/>} path="/"/>
-          <Route element={<InfoPage/>} path="/apply"/>
-          <Route element={<ApplyPage/>} path="/apply/general"/>
-          <Route element={<CoreApplyPage/>} path="apply/core"/>
-          <Route element={<SubmitPage/>} path="apply/submit"/>
+          <Route element={<MainPage/>} exact path="/"/>
+          <Route element={<InfoPage/>} exact path="/apply"/>
+          <Route element={<ApplyPage/>} exact path="/apply/general"/>
+          <Route element={<NotFound/>} exact path="/apply/core"/>
+          <Route element={<SubmitPage/>} exact path="/apply/submit"/>
+          <Route component={NotFound}/>
         </Routes>
       </>
     );

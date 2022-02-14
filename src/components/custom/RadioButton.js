@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import btn_checked from "../../assets/custom/button-checked.png";
-import btn_unchecked from "../../assets/custom/button-unchecked.jpg";
+import btn_checked from "../../assets/custom/button-checked.svg";
+import btn_unchecked from "../../assets/custom/button-unchecked.svg";
 
 const Image = styled.img`
   width: 1.5rem;
   height: 1.5rem;
+  float: left;
+  text-align: center;
+  padding: 1rem;
 `;
 const RadioButton = ({ checked, onClick }) => (
   <>
