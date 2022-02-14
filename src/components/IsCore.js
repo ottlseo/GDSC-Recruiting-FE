@@ -19,6 +19,9 @@ const Label = styled.p`
   float: left;
   padding: 1rem;
   margin: 0;
+  @media(max-width: 390px){
+    padding: 1rem 0 0 0;
+  }
 `
 const IsCore = ({answer, onClickAnswer}) => {
     return (

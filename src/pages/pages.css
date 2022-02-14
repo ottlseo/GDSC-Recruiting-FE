@@ -168,7 +168,7 @@ a:hover { color:orange; text-decoration: none;}
         font-size: 0.7rem;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 840px) {
     body {
         font-size: 0.7rem;
     }
@@ -205,14 +205,14 @@ a:hover { color:orange; text-decoration: none;}
         padding: 0 0 0 0;
     }
     .core-button-wrapper {
-        padding: 0 5% 2rem 5%;
+        padding: 0 15% 2rem 15%;
     }
     .memoji {
-        width: 40%;
+        width: 25%;
     }
     
 }
-@media (max-width: 380px) {
+@media (max-width: 390px) {
     body {
         font-size: 0.3rem;
     }
@@ -227,6 +227,9 @@ a:hover { color:orange; text-decoration: none;}
     }
     .main-description{
         font-size: 0.5rem;
+    }
+    .core-button-wrapper {
+        padding: 0 0 2rem 0;
     }
     
 }
