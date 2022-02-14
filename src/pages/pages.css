@@ -24,7 +24,7 @@
 body {
     font-family: "Pretendard-Regular";
     height: 100vh;
-    background-image: url('../assets/bg/bg-web.png');
+    background-image: url('../assets/bg/bg-web-light.svg');
     background-size : cover;
     color: #000000;
 }
@@ -35,9 +35,13 @@ a:hover { color:orange; text-decoration: none;}
 .wrapper {
     padding: 0 20% 5% 20%;
 }
-.info-wrapper {
+.info-box {
     background: rgba(196, 196, 196, 0.2);
     border-radius: 5%;
+    text-align: center;
+}
+.info-wrapper {
+    padding: 0 25% 0 25%;
     text-align: center;
 }
 .application-description{
@@ -48,7 +52,7 @@ a:hover { color:orange; text-decoration: none;}
 }
 .main-area{
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     text-align:center;
 }
 .big-logo {
@@ -117,6 +121,12 @@ a:hover { color:orange; text-decoration: none;}
     padding: 1rem;
     font-family: "SUIT-SemiBold";
 }
+.short-question-wrapper {
+    padding: 0 15% 0 15%;
+}
+.core-button-wrapper {
+    padding: 0 27% 2rem 27%;
+}
 .header {
     height: 10%;
     padding-left: 2rem;
@@ -171,11 +181,31 @@ a:hover { color:orange; text-decoration: none;}
     .main-area{
         padding-top: 8rem;
     }
-    .big-logo {
-    width: 13rem;
+    .main-title {
+        font-size: 1.7rem;
+        padding-bottom: 2rem;
+    }
+    .main-description{
+        padding-top: 2.5rem;
+    }
+    .big-logo-main {
+    width: 11rem;
     }
     .wrapper {
         padding: 0 5% 8% 8%;
+    }
+    .info-wrapper{
+        padding: 0 0 0 0;
+    }
+    .application-wrapper {
+        padding: 0 5% 5% 5%;
+        text-align: center;
+    }
+    .short-question-wrapper {
+        padding: 0 0 0 0;
+    }
+    .core-button-wrapper {
+        padding: 0 5% 2rem 5%;
     }
     .memoji {
         width: 40%;
@@ -184,13 +214,19 @@ a:hover { color:orange; text-decoration: none;}
 }
 @media (max-width: 380px) {
     body {
-        font-size: 0.4rem;
+        font-size: 0.3rem;
     }
     .big-logo {
-    width: 8rem;
+    width: 7rem;
+    }
+    .big-logo-main {
+    width: 7rem;
     }
     .wrapper {
         padding: 0 15% 5% 15%;
+    }
+    .main-description{
+        font-size: 0.5rem;
     }
     
 }

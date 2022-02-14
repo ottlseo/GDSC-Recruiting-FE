@@ -5,6 +5,9 @@ import logo from '../assets/ewha-logo.svg';
 
 const Logo = styled.img`
     width:18%;
+    @media(max-width: 420px){
+        width: 30%;
+    }
 `;
 const Header = () => { 
     return (

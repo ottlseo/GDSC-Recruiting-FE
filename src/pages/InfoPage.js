@@ -60,7 +60,6 @@ const InfoPage = () => {
       [id]: value
     });
   };
-  const [userId, setUserId] = useState(0); 
   const [isCore, setIsCore] = useState(0);
   const onClickIsCore = (id) => {
       setIsCore(id);
@@ -83,14 +82,16 @@ const InfoPage = () => {
         <>
         <Header/>
         <div className="wrapper">
-          <div className="info-wrapper">
+          <div className="info-box">
           <img src={character}/>
           <p className="description">GDSC Ewha에 지원해주셔서 감사합니다.<br/>아래의 정보를 입력해주세요.</p>
-          <InfoInputArea questionText="성명" id="name" value={name} onChange={onChange}/>
-          <InfoInputArea questionText="이메일" id="email" value={email} onChange={onChange}/>
-          <InfoInputArea questionText="전화번호" id="tel" value={tel} onChange={onChange}/>
-          <InfoInputArea questionText="전공" id="major" value={major} onChange={onChange}/>
-          <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
+          <div className="info-wrapper">
+            <InfoInputArea questionText="성명" id="name" value={name} onChange={onChange}/>
+            <InfoInputArea questionText="이메일" id="email" value={email} onChange={onChange}/>
+            <InfoInputArea questionText="전화번호" id="tel" value={tel} onChange={onChange}/>
+            <InfoInputArea questionText="전공" id="major" value={major} onChange={onChange}/>
+            <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
+          </div>
           <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
           </div>
           <div className="submit">
