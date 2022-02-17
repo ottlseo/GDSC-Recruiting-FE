@@ -21,6 +21,9 @@ const InputBox = styled.textarea`
     background: #C5C5C5;
     font-family: "Pretendard-Regular";
     padding: 1rem;
+    @media(max-width: 870px){
+        font-size:0.7rem;
+    }
 `;
 //color:#FFFFFF;
 //background: #3D3D3D; 

@@ -92,7 +92,6 @@ const InfoPage = () => {
             <InfoInputArea questionText="전공" id="major" value={major} onChange={onChange}/>
             <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
           </div>
-          <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
           </div>
           <div className="submit">
             {
