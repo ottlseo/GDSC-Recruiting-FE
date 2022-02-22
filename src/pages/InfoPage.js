@@ -13,6 +13,7 @@ import character from "../assets/character/ta-da.svg";
 
 const InfoPage = () => { 
   var info = new Object();
+  let isComplete = false; // 모든 필드가 입력 되었는가?
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
@@ -74,6 +75,7 @@ const InfoPage = () => {
         info.isCore = isCore; 
       }
       const submitInfo = async(info, link) => {
+        //if()
         let response = await axios.post(`${SERVER_ADDR}/api/info`, info);
         navigate(`/apply/${link}`, { state: { infoValue:info, userIdValue:response.data } })
         // userId (성공적으로 post되면 자동생성되는 값)도 같이 보내준다
