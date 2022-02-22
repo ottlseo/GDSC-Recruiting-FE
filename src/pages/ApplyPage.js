@@ -34,24 +34,34 @@ const ApplyPage = () => {
     });
     const { first, second, third, fourth, stacks, paths, portfolio } = inputs;
 
+    const showAlert = (maxLength) => {
+      const Toast = Swal.mixin({
+        toast:true,
+        position:'center-center',
+        showConfirmButton: false,
+                  timer: 800,
+                  didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+      })
+      Toast.fire({
+        icon: 'warning',
+        title: `${maxLength}자 이내로 입력해주세요.`
+      })
+    }
     const onChange = (e) => {
       const { value, id } = e.target; // 서버 post용
-      if(value.length > 500){
-        const Toast = Swal.mixin({
-          toast:true,
-          position:'center-center',
-          showConfirmButton: false,
-                    timer: 800,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-        })
-        Toast.fire({
-          icon: 'warning',
-          title: '500자 이내로 입력해주세요.'
-      })
-        value = value.substr(0, 500);
+      if(id === 'stacks' || id==='portfolio' || id==='paths'){
+        if(value.length > 200){
+          showAlert(200);
+          value = value.substr(0, 200);
+        }
+      } else{
+        if(value.length > 500){
+          showAlert(500);
+          value = value.substr(0, 500);
+        }
       }
       setInputs({ // 값 저장
         ...inputs,
