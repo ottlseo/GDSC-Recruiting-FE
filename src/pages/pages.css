@@ -103,7 +103,7 @@ a:hover { color:orange; text-decoration: none;}
     text-align:center;
 }
 .description {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin: 0;
     font-style: normal;
     font-weight: bold;
@@ -138,6 +138,12 @@ a:hover { color:orange; text-decoration: none;}
     background: rgb(249, 250, 251);
     font-size: 0.5rem;
 }
+.footer-main{
+    padding: 3% 0 3% 0;
+    padding-left: 8%;
+    background: rgb(249, 250, 251);
+    font-size: 0.5rem;
+}
 .apply-page {
     background-size : cover;
 }
@@ -161,15 +167,15 @@ a:hover { color:orange; text-decoration: none;}
     .big-logo {
     width: 16rem;
     }
-    .main-title {
-        font-size: 2rem;
-    }
     .description {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 840px) {
     body {
+        font-size: 1rem;
+    }
+    .description {
         font-size: 0.7rem;
     }
     .main-page {
@@ -182,8 +188,7 @@ a:hover { color:orange; text-decoration: none;}
         padding-top: 8rem;
     }
     .main-title {
-        font-size: 1.7rem;
-        padding-bottom: 2rem;
+        padding: 3rem;
     }
     .main-description{
         padding-top: 2.5rem;
@@ -205,16 +210,25 @@ a:hover { color:orange; text-decoration: none;}
         padding: 0 0 0 0;
     }
     .core-button-wrapper {
-        padding: 0 5% 2rem 5%;
+        padding: 0 15% 2rem 15%;
     }
     .memoji {
-        width: 40%;
+        width: 25%;
     }
-    
+    .footer-main{
+        position: fixed;
+        bottom: 0;
+    }
+    .main_menu {
+        font-size: 1rem;
+    }
 }
-@media (max-width: 380px) {
+@media (max-width: 390px) {
     body {
         font-size: 0.3rem;
+    }
+    .main-title {
+        width: 13rem;
     }
     .big-logo {
     width: 7rem;
@@ -228,5 +242,11 @@ a:hover { color:orange; text-decoration: none;}
     .main-description{
         font-size: 0.5rem;
     }
-    
+    .core-button-wrapper {
+        padding: 0 0 2rem 0;
+    }
+    .footer-main{
+        position: inherit;
+        bottom: 0;
+    }
 }

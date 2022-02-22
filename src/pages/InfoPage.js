@@ -13,6 +13,7 @@ import character from "../assets/character/ta-da.svg";
 
 const InfoPage = () => { 
   var info = new Object();
+  let isComplete = false; // 모든 필드가 입력 되었는가?
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: '',
@@ -23,7 +24,7 @@ const InfoPage = () => {
   });
   const { name, email, tel, major, studentNum } = inputs;
   // 글자수 제한 
-  const showAlert = (maxLength) => {
+  const showAlert = (maxLength, contents) => {
     const Toast = Swal.mixin({
       toast:true,
       position:'center-center',
@@ -34,25 +35,33 @@ const InfoPage = () => {
                     toast.addEventListener('mouseleave', Swal.resumeTimer)
                 }
     })
-    Toast.fire({
-      icon: 'warning',
-      title: `${maxLength}자 이내로 입력해주세요.`
-  })
+    if(contents=='length'){
+      Toast.fire({
+        icon: 'warning',
+        title: `${maxLength}자 이내로 입력해주세요.`
+      })
+    } else {
+      Toast.fire({
+        icon: 'error',
+        title: `모든 정보를 입력해주세요.`
+    })
+    }
+    
   }
   const onChange = (e) => {
     const { value, id } = e.target;
     // 영역별로 maxLength를 다르게 제한
     if(id==='name'|| id==='studentNum'){
       if(value.length > 10){
-        showAlert(10);
+        showAlert(10, 'length');
         value = value.substr(0, 10);
       }} else if(id==='email'){
       if(value.length > 50){
-        showAlert(50);
+        showAlert(50, 'length');
         value = value.substr(0, 50);
       }} else {
       if(value.length > 25){ //tel, major
-        showAlert(25);
+        showAlert(25, 'length');
         value = value.substr(0, 25);
     }}
     setInputs({
@@ -66,17 +75,28 @@ const InfoPage = () => {
     }
 
     const generateRequestDto = (name, email, tel, major, studentNum, isCore) => {
+      if(name==='' ||email==='' ||tel==='' ||major==='' ||studentNum===''){
+        isComplete=false;
+      } else{
+        isComplete=true;
         info.name = name;
         info.email = email;
         info.studentNum = studentNum;
         info.major = major;
         info.tel = tel;
         info.isCore = isCore; 
+        }
       }
       const submitInfo = async(info, link) => {
-        let response = await axios.post(`${SERVER_ADDR}/api/info`, info);
-        navigate(`/apply/${link}`, { state: { infoValue:info, userIdValue:response.data } })
-        // userId (성공적으로 post되면 자동생성되는 값)도 같이 보내준다
+        if(!isComplete) {
+          // 뒤로 넘기지 않고, alert 보내주기
+          showAlert(10, 'wrong');
+        } else {
+          let response = await axios.post(`${SERVER_ADDR}/api/info`, info);
+          navigate(`/apply/${link}`, { state: { infoValue:info, userIdValue:response.data } })
+          // userId (성공적으로 post되면 자동생성되는 값)도 같이 보내준다
+        }
+        
       }
     return (
         <>
@@ -92,7 +112,6 @@ const InfoPage = () => {
             <InfoInputArea questionText="전공" id="major" value={major} onChange={onChange}/>
             <InfoInputArea questionText="학번 7자리" id="studentNum" value={studentNum} onChange={onChange}/>
           </div>
-          <IsCore answer={isCore} onClickAnswer={onClickIsCore}/>
           </div>
           <div className="submit">
             {

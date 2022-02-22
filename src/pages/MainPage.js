@@ -7,6 +7,8 @@ import MainHeader from "../components/MainHeader";
 import './pages.css';
 import logo from '../assets/gdsc-logo-default.png';
 import logo_gif from '../assets/xhyun-gif.gif';
+import title_web from '../assets/title-web.svg';
+import title_mobile from '../assets/title-mobile.svg';
 
 const MainPage = () => { 
     return (
@@ -14,8 +16,8 @@ const MainPage = () => {
     <div className="main-page">
         <MainHeader/>
         <div className="main-area">
-            <img className="big-logo-main" src={logo} alt={logo}/>
-            <div className="main-title">GDSC Ewha Recruiting</div>
+            <img className="big-logo-main" src={logo} alt={logo}/><br/>
+            <img className="main-title" src={title_mobile}/><br/>
             <Link to="/apply">
                 <Button>Join us</Button>
             </Link>

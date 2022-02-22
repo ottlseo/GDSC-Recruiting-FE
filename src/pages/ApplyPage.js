@@ -34,24 +34,34 @@ const ApplyPage = () => {
     });
     const { first, second, third, fourth, stacks, paths, portfolio } = inputs;
 
+    const showAlert = (maxLength) => {
+      const Toast = Swal.mixin({
+        toast:true,
+        position:'center-center',
+        showConfirmButton: false,
+                  timer: 800,
+                  didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+      })
+      Toast.fire({
+        icon: 'warning',
+        title: `${maxLength}자 이내로 입력해주세요.`
+      })
+    }
     const onChange = (e) => {
       const { value, id } = e.target; // 서버 post용
-      if(value.length > 500){
-        const Toast = Swal.mixin({
-          toast:true,
-          position:'center-center',
-          showConfirmButton: false,
-                    timer: 800,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-        })
-        Toast.fire({
-          icon: 'warning',
-          title: '500자 이내로 입력해주세요.'
-      })
-        value = value.substr(0, 500);
+      if(id === 'stacks' || id==='portfolio' || id==='paths'){
+        if(value.length > 200){
+          showAlert(200);
+          value = value.substr(0, 200);
+        }
+      } else{
+        if(value.length > 500){
+          showAlert(500);
+          value = value.substr(0, 500);
+        }
       }
       setInputs({ // 값 저장
         ...inputs,
@@ -75,7 +85,7 @@ const ApplyPage = () => {
             console.log(application.info.name);}); //이름 출력
     }
     const username = info.name;
-    return ( //<InputArea id='fourth' value={fourth} onChange={onChange} questionText={`GDSC Ewha Member로 함께 하게 된다면 구체적인 활동 계획을 알려주세요.`}/>
+    return (
       <>
       <Header/>
       <div className="application-wrapper apply-page">
@@ -89,10 +99,9 @@ const ApplyPage = () => {
         <InputArea id='third' value={third} onChange={onChange} questionText={`${username}님이 가장 열심히 참여했던 프로젝트를 소개해주세요.`}/>
         <InputArea id='fourth' value={fourth} onChange={onChange} questionText={`GDSC Ewha Member로 함께 하게 된다면 구체적인 활동 계획을 알려주세요.`}/>
         <br/>
-        <InfoInputArea questionText="관심 있는 개발 분야, 또는 주로 사용하는 개발 언어를 알려주세요." id="stacks" value={stacks} onChange={onChange}/>
-        <InfoInputArea questionText="포트폴리오 링크를 첨부해주세요. (Github 혹은 기술 블로그, Notion 등)" id="portfolio" value={portfolio} onChange={onChange}/>
-        <InfoInputArea questionText="GDSC Ewha를 어떻게 알게 되었나요?" id="paths" value={paths} onChange={onChange}/>
-        
+        <InfoInputArea questionText="관심 있는 개발 분야와 기술 스택에 대해 알려주세요." id="stacks" value={stacks} onChange={onChange} placeholder="ex. Backend(Java), Cloud, DevOps, etc..."/>
+        <InfoInputArea questionText="포트폴리오 링크를 첨부해주세요." id="portfolio" value={portfolio} onChange={onChange} placeholder="ex. github, Notion"/>
+        <InfoInputArea questionText="GDSC Ewha를 어떻게 알게 되었나요?" id="paths" value={paths} onChange={onChange} placeholder="ex. 지인 소개, 팀블로그"/>
       </div>
       <div className="submit">
           <Button onClick={()=> { 
