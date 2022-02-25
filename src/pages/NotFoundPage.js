@@ -15,12 +15,12 @@ const NotFound = () => {
         <div className="application-wrapper apply-page">
             <img src={Character} className="memoji"/>
             <p className="main-title">404 Not Found</p>
-            <p className="description">Core Member 지원 기간이 아닙니다!</p>
+            <p className="description">Member 지원이 2/25에 마감되었습니다.</p>
         </div>
         <div className="submit">
             <Button onClick={()=> { 
-                navigate("/apply");
-            }}>지원창으로 돌아가기</Button>
+                navigate("/");
+            }}>메인 화면</Button>
         </div>
         <Footer/>
       </>

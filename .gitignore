@@ -3,6 +3,10 @@
 # Server address 
 config.js
 
+# to secure data
+App.js
+/admin-only
+
 # dependencies
 /node_modules
 /.pnp

@@ -18,8 +18,8 @@ const MainPage = () => {
         <div className="main-area">
             <img className="big-logo-main" src={logo} alt={logo}/><br/>
             <img className="main-title" src={title_mobile}/><br/>
-            <Link to="/apply">
-                <Button>Join us</Button>
+            <Link to="/">
+                <div className="description">지원 기간이 아닙니다.</div>
             </Link>
             <div className="main-description">
                 Google Developer Student Clubs Ewha 는 <br/>이화 개발자 간의 네트워킹과 상호 성장을 목표로 하는 커뮤니티입니다.<br/>
