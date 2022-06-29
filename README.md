@@ -1,5 +1,5 @@
 # GDSC-Recruiting-Frontend
-### [GDSC Ewha 리크루팅 사이트](http://gdscewha.s3-website.ap-northeast-2.amazonaws.com/) Frontend
+### [GDSC Ewha 리크루팅 사이트] Frontend
 
 2022년 2월에 예정되어있는 GDSC Ewha 2차 멤버 모집에 사용할 사이트를 배포하는 것이 목표입니다.    
 Frontend는 React, Backend는 Spring을 사용해봅니다.
